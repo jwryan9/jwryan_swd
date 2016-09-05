@@ -1,7 +1,7 @@
 /**
  * Created by jasonryan on 9/1/16.
  */
-public class Easter {
+public class Easter implements Comparable<Easter> {
     private int Y, a, b, c, d, e, f, g, h, i, k, L, m, month, day;
 
     public Easter(int year) {
@@ -26,11 +26,46 @@ public class Easter {
         day = ((h + L - 7 * m + 114) % 31) + 1;
     }
 
-    public int getMonth() {
+    private int getMonth() {
         return month;
     }
 
-    public int getDay() {
+    private int getDay() {
         return day;
+    }
+
+    // Method allows the comparison of Easter objects for sorting in TreeMap
+    public int compareTo(Easter e) {
+        if (this.getMonth() == e.getMonth()) {
+            if (this.getDay() == e.getDay())
+                return 0;
+            else if (this.getDay() > e.getDay())
+                return 1;
+            else
+                return -1;
+        }
+        else if (this.getMonth() > e.getMonth())
+            return  1;
+        else
+            return -1;
+    }
+
+    // Overrides default toString method
+    public String toString() {
+        String monthString;
+        String easterString;
+
+        if(month == 3)
+            monthString = "March";
+        else if(month == 4)
+            monthString = "April";
+        else {
+            System.out.println("Error: invalid month");
+            return "";
+        }
+
+        easterString = monthString + " " + day;
+
+        return easterString;
     }
 }
