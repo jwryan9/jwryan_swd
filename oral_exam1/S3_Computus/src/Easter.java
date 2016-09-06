@@ -2,9 +2,10 @@
  * Created by jasonryan on 9/1/16.
  */
 public class Easter implements Comparable<Easter> {
-    private int Y, a, b, c, d, e, f, g, h, i, k, L, m, month, day;
+    private int month, day;
 
     public Easter(int year) {
+        int Y, a, b, c, d, e, f, g, h, i, k, L, m;
 
         // Perform Easter computation using the Anonymous Gregorian algorithm
         // https://en.wikipedia.org/wiki/Computus#Anonymous_Gregorian_algorithm
@@ -55,6 +56,7 @@ public class Easter implements Comparable<Easter> {
         String monthString;
         String easterString;
 
+        //
         if(month == 3)
             monthString = "March";
         else if(month == 4)
