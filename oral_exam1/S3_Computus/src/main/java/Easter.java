@@ -1,3 +1,5 @@
+package main.java;
+
 /**
  * Created by jasonryan on 9/1/16.
  */
@@ -5,6 +7,10 @@ public class Easter implements Comparable<Easter> {
     private int month, day;
 
     public Easter(int year) {
+        generateDate(year);
+    }
+
+    private void generateDate(int year) {
         int Y, a, b, c, d, e, f, g, h, i, k, L, m;
 
         // Perform Easter computation using the Anonymous Gregorian algorithm
@@ -27,11 +33,11 @@ public class Easter implements Comparable<Easter> {
         day = ((h + L - 7 * m + 114) % 31) + 1;
     }
 
-    private int getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    private int getDay() {
+    public int getDay() {
         return day;
     }
 

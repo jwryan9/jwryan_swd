@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -28,6 +30,7 @@ public class ComputusCycle {
     // Method to output occurances of Easter on each date in the cycle
     public static void displayCycleCounts() {
         TreeMap<Easter, Integer> easterTreeMap = generateCycleMap();
+
         Easter dateEntry;
         int occurrences;
 
