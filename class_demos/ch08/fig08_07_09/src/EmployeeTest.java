@@ -7,6 +7,13 @@ public class EmployeeTest {
         Date hire = new Date(3, 12, 1988);
         Employee employee = new Employee("Bob", "Blue", birth, hire);
 
+        Date birth2 = new Date(9,15,1995);
+        Date hire2 = new Date(5, 23, 2016);
+
+        Employee employee2 = new Employee("Jason", "Ryan", birth2, hire2);
+
+        Employee employee3 = new Employee();
+
         System.out.println(employee);
     }
 } // end class EmployeeTest

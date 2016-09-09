@@ -7,6 +7,9 @@ public class Employee {
     private Date birthDate;
     private Date hireDate;
 
+    public Employee() {
+    }
+
     // constructor to initialize name, birth date and hire date
     public Employee(String firstName, String lastName, Date birthDate,
                     Date hireDate) {
