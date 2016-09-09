@@ -1,18 +1,11 @@
 package test.java;
 
 import main.java.Easter;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-
-import static org.junit.Assert.*;
-
-import junit.framework.*;
-import org.testng.reporters.Buffer;
 
 /**
  * Created by jasonryan on 9/6/16.
@@ -20,7 +13,6 @@ import org.testng.reporters.Buffer;
 public class EasterTest {
 
     private final int START_YEAR = 2000;
-    private final int END_YEAR = 2024;
     private String easterDatesFile = "EasterDates2000_2024.txt"; // Source of dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
 
     BufferedReader reader;
