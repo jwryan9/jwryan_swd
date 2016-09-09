@@ -72,7 +72,7 @@ public class Easter implements Comparable<Easter> {
             return "";
         }
 
-        easterString = monthString + " " + day;
+        easterString = day + " " + monthString;
 
         return easterString;
     }
