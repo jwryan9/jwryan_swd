@@ -10,7 +10,7 @@ public class NameDialog {
 
         // create the message
         String message =
-                String.format("Your name is %s!", name);
+                String.format("Your name is %sm!", name);
 
         // display the message to welcome the user by name
         JOptionPane.showMessageDialog(null, message);
