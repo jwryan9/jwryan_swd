@@ -33,49 +33,18 @@ public class EasterTest {
         }
     }
 
-    @org.junit.Test
-    public void getMonth() throws Exception {
-        openFile(easterDatesFile);
-
-        for(int i = START_YEAR; i <= END_YEAR; i++) {
-            Easter e = new Easter(i);
-        }
-
-        reader.close();
-    }
-
-    @org.junit.Test
-    public void getDay() throws Exception {
-        openFile(easterDatesFile);
-
-        for(int i = START_YEAR; i <= END_YEAR; i++) {
-            Easter e = new Easter(i);
-        }
-
-        reader.close();
-    }
-
     @Test
     public void getString() throws Exception {
         int currentYear = START_YEAR;
 
-        String eString;
+        String eString, line;
         openFile(easterDatesFile);
 
-        /*
-        while(reader.readLine() != null) {
+        // Loop through lines of file to check if calculated Easter dates match known dates
+        while((line = reader.readLine()) != null) {
             Easter e = new Easter(currentYear);
             eString = e.toString() + " " + currentYear;
-            org.junit.Assert.assertEquals(reader.readLine(), eString);
-            currentYear++;
-        }
-        */
-
-        while(currentYear <= END_YEAR) {
-            Easter e = new Easter(currentYear);
-            eString = e.toString() + " " + currentYear;
-            org.junit.Assert.assertEquals(reader.readLine(), eString);
-
+            org.junit.Assert.assertEquals(line, eString);
             currentYear++;
         }
 
