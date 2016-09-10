@@ -26,7 +26,7 @@ public class EasterTest {
     }
 
     @Test
-    public void getString() throws Exception {
+    public void toStringTest() throws Exception {
         int currentYear = START_YEAR;
 
         String eString, line;
