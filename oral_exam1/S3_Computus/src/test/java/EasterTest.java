@@ -13,9 +13,9 @@ import java.io.FileReader;
 public class EasterTest {
 
     private final int START_YEAR = 2000;
-    private String easterDatesFile = "EasterDates2000_2024.txt"; // Source of dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
+    private final String easterDatesFile = "EasterDates2000_2024.txt"; // Source of dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
 
-    BufferedReader reader;
+    private BufferedReader reader;
 
     private void openFile(String filename) {
         try {
