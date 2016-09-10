@@ -5,7 +5,7 @@
 
 import javax.swing.JOptionPane;
 
-public class Input {
+public class guessInput {
     public static char requestGuess() {
         String input = JOptionPane.showInputDialog("Enter guess (A-Z).");
         while(!validInput(input)) {
