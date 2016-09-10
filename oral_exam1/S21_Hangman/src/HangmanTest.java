@@ -3,6 +3,6 @@
  */
 public class HangmanTest {
     public static void main(String[] args) {
-
+        char guess = Input.requestGuess();
     }
 }
