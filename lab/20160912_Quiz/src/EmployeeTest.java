@@ -12,6 +12,12 @@ public class EmployeeTest {
         hire = new Date(9,9,2001);
         Employee employee2 = new Employee("Sally", "Red", birth, hire);
         System.out.println(employee2);
+
+        employee2.setBirthDate(new Date(1,2,1983));
+        employee2.setHireDate(new Date(4,2,1999));
+        System.out.println(employee2);
+
+        System.out.println(employee1);
     }
 } // end class EmployeeTest
 

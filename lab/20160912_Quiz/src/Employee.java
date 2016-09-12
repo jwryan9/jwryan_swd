@@ -15,7 +15,39 @@ public class Employee {
                     Date hireDate) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthDate = new Date(birthDate);
+        this.hireDate = new Date(hireDate);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public Date getHireDate() {
+        return hireDate;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
     }
 

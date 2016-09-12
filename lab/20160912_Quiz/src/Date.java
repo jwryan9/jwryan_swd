@@ -35,6 +35,10 @@ public class Date {
                 "Date object constructor for date %s%n", this);
     }
 
+    public Date(Date date) {
+        this(date.getMonth(), date.getDay(), date.getYear());
+    }
+
     public int getMonth() {
         return month;
     }
