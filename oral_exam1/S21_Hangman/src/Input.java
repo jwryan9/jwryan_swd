@@ -17,6 +17,7 @@ public class Input {
         while(!validWordInput(input))
             input = JOptionPane.showInputDialog("Word invalid. Please enter valid word (No spaces).");
 
+        input.toUpperCase();
         return input;
     }
 
@@ -34,9 +35,8 @@ public class Input {
         for(char c : inputCharArr) {
             if(c == SPACE)
                 return false;
-            else
-                return true;
         }
+        return true;
     }
 
     // Method for validating user guess input
