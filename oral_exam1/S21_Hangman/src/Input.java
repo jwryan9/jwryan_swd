@@ -4,6 +4,7 @@
  */
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class Input {
     private final static int SPACE = 32;
@@ -22,9 +23,9 @@ public class Input {
     }
 
     // Method for gathering user guess from dialog box
-    public static char requestGuess() {
+    public static char requestGuess(ArrayList<Character> prevGuesses) {
         String input = JOptionPane.showInputDialog("Enter guess (A-Z).");
-        while(!validGuessInput(input))
+        while(!validGuessInput(input, prevGuesses))
             input = JOptionPane.showInputDialog("Guess invalid. Please enter valid guess (A-Z).");
         return input.toCharArray()[0];
     }
@@ -40,14 +41,20 @@ public class Input {
     }
 
     // Method for validating user guess input
-    private static boolean validGuessInput(String in) {
+    private static boolean validGuessInput(String in, ArrayList<Character> prevGuesses) {
         if(in.length() != 1)
             return false;
         else {
             if ((in.toUpperCase().toCharArray()[0] < A) || (in.toUpperCase().toCharArray()[0] > Z))
                 return false;
-            else
+            else {
+                // Check if guess has been given before
+                for (char guess : prevGuesses) {
+                    if (in.toUpperCase().toCharArray().equals(guess))
+                        return false;
+                }
                 return true;
+            }
         }
     }
 }
