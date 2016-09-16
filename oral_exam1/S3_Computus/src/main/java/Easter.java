@@ -42,6 +42,7 @@ public class Easter implements Comparable<Easter> {
     }
 
     // Method allows the comparison of Easter objects for sorting in TreeMap
+    @Override
     public int compareTo(Easter e) {
         if (this.getMonth() == e.getMonth()) {
             if (this.getDay() == e.getDay())
@@ -58,6 +59,7 @@ public class Easter implements Comparable<Easter> {
     }
 
     // Overrides default toString method
+    @Override
     public String toString() {
         String monthString;
         String easterString;
