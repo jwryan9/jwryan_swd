@@ -1,12 +1,12 @@
 // Fig. 9.4: CommissionEmployee.java
 // CommissionEmployee class represents an employee paid a 
 // percentage of gross sales.
-public class CommissionEmployee extends Employee {
+public class BasePlusCommissionEmployee extends Employee {
 
     // five-argument constructor
-    public CommissionEmployee(String firstName, String lastName,
-                              String socialSecurityNumber, double grossSales,
-                              double commissionRate) {
+    public BasePlusCommissionEmployee(String firstName, String lastName,
+                                      String socialSecurityNumber, double grossSales,
+                                      double commissionRate) {
         super(grossSales, lastName, socialSecurityNumber, commissionRate, firstName);
         // implicit call to Object's default constructor occurs here
 
