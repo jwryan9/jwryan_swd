@@ -28,6 +28,14 @@ public class BasePlusCommissionEmployee extends Employee {
 
     } // end constructor
 
+    public double getBasePay() {
+        return basePay;
+    }
+
+    public void setBasePay(double basePay) {
+        this.basePay = basePay;
+    }
+
     @Override
     public double earnings() {
         return super.earnings() + basePay;

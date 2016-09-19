@@ -3,11 +3,11 @@
  */
 public class Employee {
 
-    protected final String firstName;
-    protected final String lastName;
-    protected final String socialSecurityNumber;
-    protected double grossSales; // gross weekly sales
-    protected double commissionRate; // commission percentage
+    private final String firstName;
+    private final String lastName;
+    private final String socialSecurityNumber;
+    private double grossSales; // gross weekly sales
+    private double commissionRate; // commission percentage
 
     public Employee(double grossSales, String lastName, String socialSecurityNumber, double commissionRate, String firstName) {
         this.grossSales = grossSales;
