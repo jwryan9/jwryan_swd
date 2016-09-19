@@ -3,12 +3,18 @@
 // percentage of gross sales.
 public class BasePlusCommissionEmployee extends Employee {
 
+    private double basePay;
+
     // five-argument constructor
     public BasePlusCommissionEmployee(String firstName, String lastName,
                                       String socialSecurityNumber, double grossSales,
-                                      double commissionRate) {
+                                      double commissionRate, double basePay) {
         super(grossSales, lastName, socialSecurityNumber, commissionRate, firstName);
+        this.basePay = basePay;
         // implicit call to Object's default constructor occurs here
+
+        if (basePay < 0.0)
+            throw new IllegalArgumentException("basePay must be >= 0.0");
 
         // if grossSales is invalid throw exception
         if (grossSales < 0.0)
@@ -22,9 +28,15 @@ public class BasePlusCommissionEmployee extends Employee {
 
     } // end constructor
 
-    // calculate earnings
+    @Override
     public double earnings() {
-        return getCommissionRate() * getGrossSales();
+        return super.earnings() + basePay;
+    }
+
+    @Override
+    public String toString() {
+        String employeeInfo = super.toString();
+        return String.format("%s\n%s: %s\n", employeeInfo, "basePay rate", basePay);
     }
 
 } // end class CommissionEmployee

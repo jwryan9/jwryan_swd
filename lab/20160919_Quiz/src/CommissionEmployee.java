@@ -24,7 +24,7 @@ public class CommissionEmployee extends Employee {
 
     // calculate earnings
     public double earnings() {
-        return getCommissionRate() * getGrossSales();
+        return super.earnings();
     }
 
 } // end class CommissionEmployee

@@ -60,6 +60,11 @@ public class Employee {
         this.commissionRate = commissionRate;
     }
 
+    // calculate earnings
+    public double earnings() {
+        return getCommissionRate() * getGrossSales();
+    }
+
     // return String representation of CommissionEmployee object
     @Override // indicates that this method overrides a superclass method
     public String toString() {
