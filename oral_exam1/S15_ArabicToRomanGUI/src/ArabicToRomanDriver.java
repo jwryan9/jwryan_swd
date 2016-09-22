@@ -13,8 +13,11 @@ public class ArabicToRomanDriver {
         frame.setVisible(true);
         */
 
-        for (int i = 1; i < 100; i++)
-            System.out.println(i + " = " + Conversion.arabicToRoman(i));
+        for (int i = 1; i < 100; i++) {
+            System.out.println(i + " = " + Conversion.arabicToRoman(i)
+                                + " = " + Conversion.romanToArabic(Conversion.arabicToRoman(i)));
+        }
+
 
     }
 }

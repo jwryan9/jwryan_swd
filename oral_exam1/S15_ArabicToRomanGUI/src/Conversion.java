@@ -6,11 +6,28 @@ import java.util.TreeMap;
  */
 public class Conversion {
 
+    // Method converts String roman numeral input to integer arabic output
     public static int romanToArabic(String roman) {
         int arabic = 0;
+        int prev = 0;
+        int cur = 0;
 
-        TreeMap<String,Integer> romanArabic = romanArabicTreeMap();
+        TreeMap<Character,Integer> romanArabic = romanArabicTreeMap();
 
+        for(int i = 0; i < roman.length(); i++) {
+            cur = romanArabic.get(roman.charAt(i));
+
+            // Logic to account for roman numeral subtraction behavior (4, 9, 40, etc.)
+            if (prev != 0 && prev < cur) {
+                cur -= prev;
+                arabic -= prev;
+                arabic += cur;
+                prev = cur;
+            } else {
+                prev = cur;
+                arabic += cur;
+            }
+        }
 
         return arabic;
     }
@@ -30,23 +47,17 @@ public class Conversion {
         return arabicRoman.get(num) + arabicToRoman(arabic - num);
     }
 
-    // Method generates a TreeMap with String keys of Roman Numerals and Integer values of arabic numbers
-    private static TreeMap<String, Integer> romanArabicTreeMap() {
-        TreeMap<String, Integer> romanArabicMap = new TreeMap<>();
+    // Method generates a TreeMap with Character keys of Roman Numerals and Integer values of arabic numbers
+    private static TreeMap<Character, Integer> romanArabicTreeMap() {
+        TreeMap<Character, Integer> romanArabicMap = new TreeMap<>();
 
-        romanArabicMap.put("I",1);
-        romanArabicMap.put("IV",4);
-        romanArabicMap.put("V ",5);
-        romanArabicMap.put("IX",9);
-        romanArabicMap.put("X",10);
-        romanArabicMap.put("XL",40);
-        romanArabicMap.put("L",50);
-        romanArabicMap.put("XC",90);
-        romanArabicMap.put("C",100);
-        romanArabicMap.put("CD",400);
-        romanArabicMap.put("D",500);
-        romanArabicMap.put("CM",900);
-        romanArabicMap.put("M",1000);
+        romanArabicMap.put('I',1);
+        romanArabicMap.put('V',5);
+        romanArabicMap.put('X',10);
+        romanArabicMap.put('L',50);
+        romanArabicMap.put('C',100);
+        romanArabicMap.put('D',500);
+        romanArabicMap.put('M',1000);
 
         return romanArabicMap;
     }
