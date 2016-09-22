@@ -27,7 +27,7 @@ public class ComputusCycle {
         return easterTreeMap;
     }
 
-    // Method to output occurances of Easter on each date in the cycle
+    // Method to output occurrences of Easter on each date in the cycle
     public static void displayCycleCounts() {
         TreeMap<Easter, Integer> easterTreeMap = generateCycleMap();
 
