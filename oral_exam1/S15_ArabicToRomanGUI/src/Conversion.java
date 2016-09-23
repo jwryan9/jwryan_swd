@@ -8,9 +8,7 @@ public class Conversion {
 
     // Method converts String roman numeral input to integer arabic output
     public static int romanToArabic(String roman) {
-        int arabic = 0;
-        int prev = 0;
-        int cur = 0;
+        int arabic = 0, prev = 0, cur = 0;
 
         TreeMap<Character,Integer> romanArabic = romanArabicTreeMap();
 
