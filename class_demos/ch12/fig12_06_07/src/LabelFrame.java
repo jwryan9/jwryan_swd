@@ -3,11 +3,13 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.invoke.SwitchPoint;
 
 public class LabelFrame extends JFrame {
     private final JLabel label1; // JLabel with just text
     private final JLabel label2; // JLabel constructed with text and icon
     private final JLabel label3; // JLabel with added text and icon
+    private final JLabel label4; // Additional JLabel
 
     // LabelFrame constructor adds JLabels to JFrame
     public LabelFrame() {
@@ -20,7 +22,8 @@ public class LabelFrame extends JFrame {
         add(label1); // add label1 to JFrame
 
         // JLabel constructor with string, Icon and alignment arguments
-        Icon bug = new ImageIcon(getClass().getResource("bug1.png"));
+        ImageIcon bug = new ImageIcon(getClass().getResource("bug1.png"));
+
         label2 = new JLabel("Label with text and icon", bug,
                 SwingConstants.LEFT);
         label2.setToolTipText("This is label2");
@@ -33,6 +36,14 @@ public class LabelFrame extends JFrame {
         label3.setVerticalTextPosition(SwingConstants.BOTTOM);
         label3.setToolTipText("This is label3");
         add(label3); // add label3 to JFrame
+
+        label4 = new JLabel();
+        label4.setText("This is a new label");
+        label4.setToolTipText("Label 4");
+        label4.setHorizontalAlignment(SwingConstants.RIGHT);
+        label4.setVerticalAlignment(SwingConstants.CENTER);
+        add(label4);
+
     }
 } // end class LabelFrame
 
