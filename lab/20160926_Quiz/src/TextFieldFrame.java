@@ -69,6 +69,7 @@ public class TextFieldFrame extends JFrame {
                 string = String.format("textField3: %s",
                         event.getActionCommand());
 
+                // user pressed Enter in JTextField textField4
             else if (event.getSource() == textField4)
                 string = String.format("textField4: %s",
                         event.getActionCommand());
