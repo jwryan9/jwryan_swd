@@ -6,6 +6,7 @@ import javax.swing.*;
 public class ArabicToRomanDriver {
     public static void main(String args[]) {
 
+        /*
         ArabicToRomanFrame frame = new ArabicToRomanFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 100);
@@ -15,7 +16,9 @@ public class ArabicToRomanDriver {
             System.out.println(i + " = " + Conversion.arabicToRoman(i)
                                 + " = " + Conversion.romanToArabic(Conversion.arabicToRoman(i)));
         }
+*/
 
+        System.out.println(RomanNumeral.isValid("XL"));
 
     }
 }
