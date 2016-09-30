@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -11,8 +9,8 @@ import java.awt.event.KeyListener;
 public class ArabicToRomanFrame extends JFrame {
 
     // Constants for number of columns required in text fields.
-    private static final int MAX_ROMAN = 9;
-    private static final int MAX_ARABIC = 4;
+    private static final int MAX_ROMAN = 13;
+    private static final int MAX_ARABIC = 13;
     private final JTextField romanField;
     private final JTextField arabicField;
 
@@ -34,12 +32,38 @@ public class ArabicToRomanFrame extends JFrame {
         add(arabicLabel);
         add(arabicField);
 
-        KeyListener romanKeyListner = new KeyListener() {
+        KeyListener romanKeyListener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
             @Override
             public void keyReleased(KeyEvent e) {
-
-                arabicField.setText(romanField.getText());
+                romanField.setText(romanField.getText().toUpperCase());
+                arabicField.setText(Conversion.romanToArabic(romanField.getText()));
             }
         };
+
+        KeyListener arabicKeyListener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                romanField.setText(Conversion.arabicToRoman(Integer.parseInt(arabicField.getText())));
+            }
+        };
+
+        arabicField.addKeyListener(arabicKeyListener);
+        romanField.addKeyListener(romanKeyListener);
     }
 }
