@@ -8,6 +8,11 @@ public class Conversion {
 
     // Method converts String roman numeral input to integer arabic output
     public static String romanToArabic(String roman) {
+
+        // Validate Roman Numeral input before making conversion
+        if(!validateRoman(roman))
+            return "Invalid Roman Numeral";
+
         int arabic = 0, prev = 0, cur = 0;
 
         TreeMap<Character,Integer> romanArabic = romanArabicTreeMap();
@@ -81,7 +86,9 @@ public class Conversion {
         return arabicRomanMap;
     }
 
+    // Method validates Roman Numeral rules
     private static boolean validateRoman(String roman) {
+        // Regular expression validates Roman Numeral rules
         return roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
     }
 }
