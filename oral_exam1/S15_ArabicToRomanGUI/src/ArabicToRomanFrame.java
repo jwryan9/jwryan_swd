@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -31,5 +33,13 @@ public class ArabicToRomanFrame extends JFrame {
         add(romanField);
         add(arabicLabel);
         add(arabicField);
+
+        KeyListener romanKeyListner = new KeyListener() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+                arabicField.setText(romanField.getText());
+            }
+        };
     }
 }

@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class Conversion {
 
     // Method converts String roman numeral input to integer arabic output
-    public static int romanToArabic(String roman) {
+    public static String romanToArabic(String roman) {
         int arabic = 0, prev = 0, cur = 0;
 
         TreeMap<Character,Integer> romanArabic = romanArabicTreeMap();
@@ -27,7 +27,7 @@ public class Conversion {
             }
         }
 
-        return arabic;
+        return Integer.toString(arabic);
     }
 
     // Method converts arabic integer input to String roman numeral output recursively
@@ -79,5 +79,9 @@ public class Conversion {
         arabicRomanMap.put(1000,"M");
 
         return arabicRomanMap;
+    }
+
+    private static boolean validateRoman(String roman) {
+        return roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
     }
 }
