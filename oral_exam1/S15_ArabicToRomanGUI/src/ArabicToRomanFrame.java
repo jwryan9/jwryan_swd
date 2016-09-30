@@ -32,6 +32,8 @@ public class ArabicToRomanFrame extends JFrame {
         add(arabicLabel);
         add(arabicField);
 
+        Roman romanNumeral = new Roman(romanField.getText());
+
         KeyListener romanKeyListener = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -43,8 +45,9 @@ public class ArabicToRomanFrame extends JFrame {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                romanField.setText(romanField.getText().toUpperCase());
-                arabicField.setText(Conversion.romanToArabic(romanField.getText()));
+                romanNumeral.setRoman(romanField.getText().toUpperCase());
+                romanField.setText(romanNumeral.getRoman());
+                arabicField.setText(romanNumeral.convert());
             }
         };
 
