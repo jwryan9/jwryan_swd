@@ -6,6 +6,7 @@ import java.util.TreeMap;
 public class Roman {
     private String roman;
 
+    // Constructor
     public Roman(String romanNum) {
         roman = romanNum.toUpperCase();
     }
