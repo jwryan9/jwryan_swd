@@ -1,5 +1,7 @@
 import javax.swing.*;
+import javax.swing.text.PlainDocument;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -35,41 +37,34 @@ public class ArabicToRomanFrame extends JFrame {
         Roman romanNumeral = new Roman(romanField.getText());
         Arabic arabicNum = new Arabic(arabicField.getText());
 
-
-        KeyListener romanKeyListener = new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-
-            @Override
-            public void keyPressed(KeyEvent e) {}
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                arabicField.setText("");
-                romanNumeral.setRoman(romanField.getText().toUpperCase());
-                romanField.setText(romanNumeral.getRoman());
-                arabicField.setText(romanNumeral.convert());
-            }
-        };
-
-        KeyListener arabicKeyListener = new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-
-            @Override
-            public void keyPressed(KeyEvent e) {}
-
+        // KeyListener for arabicField updates romanField on keyRelease
+        arabicField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
                 romanField.setText("");
-                if(arabicField.getText().length() != 0) {
+
+                // Do not attempt conversion if field is blank
+                if (arabicField.getText().length() > 0) {
                     arabicNum.setArabic(Integer.parseInt(arabicField.getText()));
                     romanField.setText(arabicNum.convert(arabicNum.getArabic()));
                 }
             }
-        };
+        });
 
-        arabicField.addKeyListener(arabicKeyListener);
-        romanField.addKeyListener(romanKeyListener);
+        // KeyListener for romanField updates arabicField on keyRelease
+        romanField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                arabicField.setText("");
+
+                // Do not attempt conversion if field is blank
+                if(romanField.getText().length() > 0) {
+                    romanNumeral.setRoman(romanField.getText().toUpperCase());
+                    romanField.setText(romanNumeral.getRoman());
+                    arabicField.setText(romanNumeral.convert());
+                }
+            }
+        });
+
     }
 }
