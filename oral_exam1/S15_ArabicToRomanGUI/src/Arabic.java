@@ -14,7 +14,11 @@ public class Arabic {
             arabic = 0;
     }
 
+    // Method for converting arabic numbers to Roman Numerals
     public String convert(int arabic) {
+        if(arabic > 3999 || arabic < 1)
+            return "Invalid Arabic Number";
+
         int num;
 
         TreeMap<Integer,String> arabicRoman = arabicRomanTreeMap();
