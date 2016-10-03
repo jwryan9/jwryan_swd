@@ -1,7 +1,6 @@
 package test.java;
 
 import main.java.Easter;
-import org.testng.annotations.Test;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,7 +12,7 @@ import java.io.FileReader;
 public class EasterTest {
 
     private final int START_YEAR = 2000;
-    private final String easterDatesFile = "EasterDates2000_2024.txt"; // Source of dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
+    private final String easterDatesFile = "src/test/java/EasterDates2000_2024.txt"; // Source of dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
 
     private BufferedReader reader;
 
@@ -25,7 +24,7 @@ public class EasterTest {
         }
     }
 
-    @Test
+    @org.junit.Test
     public void toStringTest() throws Exception {
         int currentYear = START_YEAR;
 
