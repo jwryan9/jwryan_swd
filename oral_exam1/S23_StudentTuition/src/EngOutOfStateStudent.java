@@ -3,11 +3,20 @@
  */
 public class EngOutOfStateStudent extends OutOfStateStudent {
     private final int feesAndServ = 200;
+    private final int minHoursForFees = 6;
 
     private final String collegeEnrolled = "Engineering";
 
     public EngOutOfStateStudent(String first, String last, int id, int hours) {
         super(first, last, id, hours);
+    }
+
+    public int getFeesAndServ() {
+        return feesAndServ;
+    }
+
+    public int getMinHoursForFees() {
+        return minHoursForFees;
     }
 
     @Override

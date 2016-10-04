@@ -3,15 +3,18 @@
  */
 public class LiberalForeignUndergrad extends LiberalForeignStudent {
     private final int fullLoad = 15;
+    private double tuition;
 
     private final String studentStatus = "Undergrad";
 
     public LiberalForeignUndergrad(String first, String last, int id, int hours) {
         super(first, last, id, hours);
+        tuition = Tuition.calculateTuition(hours, getMinHoursForFees(), getFeesAndServ(), fullLoad,
+                getBaseClassHourTuitionRate(), getSurchargUptoFull(), getSurchargeAfterFull());
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Student Status: " + studentStatus;
+        return super.toString() + "\nStudent Status: " + studentStatus + "\nTuition Owed: $" + String.format("%.2f\n", tuition);
     }
 }

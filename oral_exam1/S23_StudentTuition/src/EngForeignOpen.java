@@ -15,6 +15,6 @@ public class EngForeignOpen extends EngForeignStudent {
 
     @Override
     public String toString() {
-        return super.toString() + "Student Status: " + studentStatus;
+        return super.toString() + "\nStudent Status: " + studentStatus + "\nTuition Owed: $" + String.format("%.2f\n", tuition);
     }
 }

@@ -14,27 +14,6 @@ public class EngForeignGraduate extends EngForeignStudent{
                 this.getBaseClassHourTuitionRate(), this.getSurchargUptoFull(), this.getSurchargeAfterFull());
     }
 
-    /*
-    // Method to calculate tuition
-    private double tuitionOwed() {
-        double tuition = 0;
-        int hours = this.getNumberOfRegisteredHours();
-
-        if(hours >= this.getMinHoursForFees())
-            tuition += this.getFeesAndServ();
-
-        if(hours <= fullLoad) {
-            tuition += hours * getBaseClassHourTuitionRate() * (1 + getSurchargUptoFull());
-        } else {
-            hours -= fullLoad;
-            tuition += fullLoad * getBaseClassHourTuitionRate() * (1 + getSurchargUptoFull());
-            tuition += hours * getBaseClassHourTuitionRate() * (1 + getSurchargeAfterFull());
-        }
-
-            return tuition;
-    }
-    */
-
     @Override
     public String toString() {
         return super.toString() + "\nStudent Status: " + studentStatus + "\nTuition Owed: $" + String.format("%.2f\n", tuition);

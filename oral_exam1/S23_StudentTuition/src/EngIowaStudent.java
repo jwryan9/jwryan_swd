@@ -15,6 +15,10 @@ public class EngIowaStudent extends IowaStudent {
         return feesAndServ;
     }
 
+    public int getMinHoursForFees() {
+        return minHoursForFees;
+    }
+
     @Override
     public String toString() {
         return  super.toString() + "\nCollege Enrolled: " + collegeEnrolled;
