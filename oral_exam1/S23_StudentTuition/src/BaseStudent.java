@@ -2,9 +2,9 @@
  * Created by jasonryan on 10/3/16.
  */
 public class BaseStudent {
-    int baseClassHourTuitionRate = 350;
-    String firstName, lastName;
-    int studentID, numberOfRegisteredHours;
+    private int baseClassHourTuitionRate = 350;
+    private String firstName, lastName;
+    private int studentID, numberOfRegisteredHours;
 
     // Constructor
     public BaseStudent(String first, String last, int id, int hours) {
