@@ -12,6 +12,14 @@ public class IowaStudent extends BaseStudent {
         super(first, last, id, hours);
     }
 
+    public int getDiscountUptoFull() {
+        return discountUptoFull;
+    }
+
+    public int getDiscountAfterFull() {
+        return discountAfterFull;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\nResidency: " + placeOfResidence;

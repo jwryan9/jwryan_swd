@@ -4,7 +4,14 @@
 public class LiberalOutOfStateOpen extends LiberalOutOfStateStudent {
     private final int fullLoad = 3;
 
+    private final String studentStatus = "Open";
+
     public LiberalOutOfStateOpen(String first, String last, int id, int hours) {
         super(first, last, id, hours);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Student Status: " + studentStatus;
     }
 }
