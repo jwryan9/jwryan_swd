@@ -3,6 +3,7 @@
  */
 public class EngIowaStudent extends IowaStudent {
     private final int feesAndServ = 200;
+    private final int minHoursForFees = 6;
 
     private final String collegeEnrolled = "Engineering";
 

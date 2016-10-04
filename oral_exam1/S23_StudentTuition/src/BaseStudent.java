@@ -56,6 +56,6 @@ public class BaseStudent {
 
     @Override
     public String toString() {
-        return "First Name: " + firstName + "/nLast Name: " + lastName + "\nStudent ID: " + studentID + "\nHours Registered: " + numberOfRegisteredHours;
+        return "First Name: " + firstName + "\nLast Name: " + lastName + "\nStudent ID: " + studentID + "\nHours Registered: " + numberOfRegisteredHours;
     }
 }

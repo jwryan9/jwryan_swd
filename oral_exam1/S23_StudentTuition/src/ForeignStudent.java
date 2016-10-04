@@ -2,7 +2,7 @@
  * Created by jasonryan on 10/3/16.
  */
 public class ForeignStudent extends BaseStudent {
-    private final double surchargUptoFull = 0.3 ;
+    private final double surchargUptoFull = -0.03 ;
     private final int surchargeAfterFull = 0;
 
     private final String placeOfResidence = "Foreign";

@@ -9,30 +9,34 @@ public class EngForeignGraduate extends EngForeignStudent{
 
     public EngForeignGraduate(String first, String last, int id, int hours) {
         super(first, last, id, hours);
-        tuition = tuitionOwed();
+        //tuition = tuitionOwed();
+        tuition = Tuition.calculateTuition(hours, this.getMinHoursForFees(), this.getFeesAndServ(), fullLoad,
+                this.getBaseClassHourTuitionRate(), this.getSurchargUptoFull(), this.getSurchargeAfterFull());
     }
 
+    /*
     // Method to calculate tuition
     private double tuitionOwed() {
         double tuition = 0;
         int hours = this.getNumberOfRegisteredHours();
 
-        if(hours >= 6)
+        if(hours >= this.getMinHoursForFees())
             tuition += this.getFeesAndServ();
 
         if(hours <= fullLoad) {
-            tuition = hours * getBaseClassHourTuitionRate() + hours * getSurchargUptoFull();
+            tuition += hours * getBaseClassHourTuitionRate() * (1 + getSurchargUptoFull());
         } else {
             hours -= fullLoad;
-            tuition += fullLoad * getBaseClassHourTuitionRate() + fullLoad * getSurchargUptoFull();
-            tuition += hours * getBaseClassHourTuitionRate() + hours * getSurchargeAfterFull();
+            tuition += fullLoad * getBaseClassHourTuitionRate() * (1 + getSurchargUptoFull());
+            tuition += hours * getBaseClassHourTuitionRate() * (1 + getSurchargeAfterFull());
         }
 
             return tuition;
     }
+    */
 
     @Override
     public String toString() {
-        return super.toString() + "Student Status: " + studentStatus;
+        return super.toString() + "\nStudent Status: " + studentStatus + "\nTuition Owed: $" + String.format("%.2f\n", tuition);
     }
 }
