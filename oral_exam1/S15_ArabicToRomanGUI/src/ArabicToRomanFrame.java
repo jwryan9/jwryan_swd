@@ -43,7 +43,14 @@ public class ArabicToRomanFrame extends JFrame {
 
                 // Do not attempt conversion if field is blank
                 if (arabicField.getText().length() > 0) {
-                    arabicNum.setArabic(Integer.parseInt(arabicField.getText()));
+
+                    // Implement exception handling when user does not a valid number
+                    try {
+                        arabicNum.setArabic(Integer.parseInt(arabicField.getText()));
+                    } catch (NumberFormatException ex) {
+                        romanField.setText("Invalid Arabic Number");
+                    }
+
                     romanField.setText(arabicNum.convert(arabicNum.getArabic()));
                 }
             }
