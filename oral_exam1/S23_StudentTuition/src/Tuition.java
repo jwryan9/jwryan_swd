@@ -2,10 +2,11 @@
  * Created by jasonryan on 10/4/16.
  */
 public class Tuition {
+    private static int baseClassHourTuitionRate = 350;
 
     // Method to calculate tuition
     public static double calculateTuition(int hours, int minHoursForFees, int fees, int fullLoad,
-                                          int baseTuitionRate, double surchargeDiscountUptoFull,
+                                          double surchargeDiscountUptoFull,
                                           double surchargeDiscountAfterFull) {
         double tuition = 0;
 
@@ -13,13 +14,21 @@ public class Tuition {
             tuition += fees;
 
         if(hours <= fullLoad) {
-            tuition += hours * baseTuitionRate * (1 - surchargeDiscountUptoFull);
+            tuition += hours * baseClassHourTuitionRate * (1 - surchargeDiscountUptoFull);
         } else {
             hours -= fullLoad;
-            tuition += fullLoad * baseTuitionRate * (1 - surchargeDiscountUptoFull);
-            tuition += hours * baseTuitionRate * (1 - surchargeDiscountAfterFull);
+            tuition += fullLoad * baseClassHourTuitionRate * (1 - surchargeDiscountUptoFull);
+            tuition += hours * baseClassHourTuitionRate * (1 - surchargeDiscountAfterFull);
         }
 
         return tuition;
+    }
+
+    public static int getBaseClassHourTuitionRate() {
+        return baseClassHourTuitionRate;
+    }
+
+    public static void setBaseClassHourTuitionRate(int tuitionRate) {
+        baseClassHourTuitionRate = tuitionRate;
     }
 }

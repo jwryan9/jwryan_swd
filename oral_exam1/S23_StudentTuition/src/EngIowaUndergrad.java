@@ -9,8 +9,13 @@ public class EngIowaUndergrad extends EngIowaStudent {
 
     public EngIowaUndergrad(String first, String last, int id, int hours) {
         super(first, last, id, hours);
-        tuition = Tuition.calculateTuition(hours, getMinHoursForFees(), getFeesAndServ(), fullLoad,
-                getBaseClassHourTuitionRate(), getDiscountUptoFull(), getDiscountAfterFull());
+        updateTuition();
+    }
+
+    // Method updates tuition variable with calculated tuition
+    public void updateTuition() {
+        tuition = Tuition.calculateTuition(this.getNumberOfRegisteredHours(), this.getMinHoursForFees(), this.getFeesAndServ(),
+                this.fullLoad, this.getDiscountUptoFull(), this.getDiscountAfterFull());
     }
 
     @Override

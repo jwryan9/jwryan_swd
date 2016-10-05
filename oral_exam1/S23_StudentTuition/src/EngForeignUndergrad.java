@@ -9,8 +9,13 @@ public class EngForeignUndergrad extends EngForeignStudent {
 
     public EngForeignUndergrad(String first, String last, int id, int hours) {
         super(first, last, id, hours);
-        tuition = Tuition.calculateTuition(hours, getMinHoursForFees(), getFeesAndServ(), fullLoad,
-                getBaseClassHourTuitionRate(), getSurchargUptoFull(), getSurchargeAfterFull());
+        updateTuition();
+    }
+
+    // Method updates tuition variable with calculated tuition
+    public void updateTuition() {
+        tuition = Tuition.calculateTuition(this.getNumberOfRegisteredHours(), this.getMinHoursForFees(), this.getFeesAndServ(),
+                this.fullLoad, this.getSurchargUptoFull(), this.getSurchargeAfterFull());
     }
 
     @Override
