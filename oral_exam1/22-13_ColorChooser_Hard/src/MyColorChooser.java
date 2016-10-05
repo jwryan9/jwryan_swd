@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 /**
@@ -43,6 +45,33 @@ public class MyColorChooser extends JPanel{
         redField.setText(String.valueOf(redSlider.getValue()));
         greenField.setText(String.valueOf(greenSlider.getValue()));
         blueField.setText(String.valueOf(blueSlider.getValue()));
+
+        redSlider.addChangeListener(
+                new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        redField.setText(String.valueOf(redSlider.getValue()));
+                    }
+                }
+        );
+
+        greenSlider.addChangeListener(
+                new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        greenField.setText(String.valueOf(greenSlider.getValue()));
+                    }
+                }
+        );
+
+        blueSlider.addChangeListener(
+                new ChangeListener() {
+                    @Override
+                    public void stateChanged(ChangeEvent e) {
+                        blueField.setText(String.valueOf(blueSlider.getValue()));
+                    }
+                }
+        );
 
         add(redLabel);
         add(redSlider);
