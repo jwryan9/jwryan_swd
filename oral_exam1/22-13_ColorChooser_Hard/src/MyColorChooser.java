@@ -3,6 +3,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by jasonryan on 10/4/16.
@@ -69,6 +71,33 @@ public class MyColorChooser extends JPanel{
                     @Override
                     public void stateChanged(ChangeEvent e) {
                         blueField.setText(String.valueOf(blueSlider.getValue()));
+                    }
+                }
+        );
+
+        redField.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        redSlider.setValue(Integer.parseInt(redField.getText()));
+                    }
+                }
+        );
+
+        greenField.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        greenSlider.setValue(Integer.parseInt(greenField.getText()));
+                    }
+                }
+        );
+
+        blueField.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        blueSlider.setValue(Integer.parseInt(blueField.getText()));
                     }
                 }
         );
