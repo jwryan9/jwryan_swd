@@ -1,10 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by jasonryan on 10/4/16.
@@ -49,57 +45,27 @@ public class MyColorChooser extends JPanel{
         blueField.setText(String.valueOf(blueSlider.getValue()));
 
         redSlider.addChangeListener(
-                new ChangeListener() {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        redField.setText(String.valueOf(redSlider.getValue()));
-                    }
-                }
+                e -> redField.setText(String.valueOf(redSlider.getValue()))
         );
 
         greenSlider.addChangeListener(
-                new ChangeListener() {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        greenField.setText(String.valueOf(greenSlider.getValue()));
-                    }
-                }
+                e -> greenField.setText(String.valueOf(greenSlider.getValue()))
         );
 
         blueSlider.addChangeListener(
-                new ChangeListener() {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        blueField.setText(String.valueOf(blueSlider.getValue()));
-                    }
-                }
+                e -> blueField.setText(String.valueOf(blueSlider.getValue()))
         );
 
         redField.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        redSlider.setValue(Integer.parseInt(redField.getText()));
-                    }
-                }
+                e -> redSlider.setValue(Integer.parseInt(redField.getText()))
         );
 
         greenField.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        greenSlider.setValue(Integer.parseInt(greenField.getText()));
-                    }
-                }
+                e -> greenSlider.setValue(Integer.parseInt(greenField.getText()))
         );
 
         blueField.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        blueSlider.setValue(Integer.parseInt(blueField.getText()));
-                    }
-                }
+                e -> blueSlider.setValue(Integer.parseInt(blueField.getText()))
         );
 
         add(redLabel);
@@ -111,7 +77,6 @@ public class MyColorChooser extends JPanel{
         add(blueLabel);
         add(blueSlider);
         add(blueField);
-
 
     }
 
