@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by jasonryan on 10/4/16.
@@ -6,6 +7,8 @@ import javax.swing.*;
 public class ColorChooserFrame extends JFrame {
     public ColorChooserFrame() {
         super("22-13_ColorChooser");
-        add(new MyColorChooser());
+        setLayout(new BorderLayout(10, 20));
+        add(new MyColorChooser(), BorderLayout.WEST);
+        add(new RectanglePanel(), BorderLayout.EAST);
     }
 }

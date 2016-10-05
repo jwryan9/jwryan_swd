@@ -1,6 +1,10 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by jasonryan on 10/4/16.
@@ -62,73 +66,15 @@ public class MyColorChooser extends JPanel{
         // Generate default color
         color = new Color(redVal, greenVal, blueVal);
 
-        redSlider.addChangeListener(
-                e -> {
-                    redVal = redSlider.getValue();
-                    redField.setText(String.valueOf(redVal));
-                    color = new Color(redVal, greenVal, blueVal);
-                }
-        );
+        // Add change listeners to sliders
+        redSlider.addChangeListener(new SliderChangeHandler());
+        greenSlider.addChangeListener(new SliderChangeHandler());
+        blueSlider.addChangeListener(new SliderChangeHandler());
 
-        greenSlider.addChangeListener(
-                e -> {
-                    greenVal = greenSlider.getValue();
-                    greenField.setText(String.valueOf(greenSlider.getValue()));
-                    color = new Color(redVal, greenVal, blueVal);
-                }
-        );
-
-        blueSlider.addChangeListener(
-                e -> {
-                    blueVal = blueSlider.getValue();
-                    blueField.setText(String.valueOf(blueSlider.getValue()));
-                    color = new Color(redVal, greenVal, blueVal);
-
-                }
-        );
-
-        redField.addActionListener(
-                e -> {
-                    // Catch exception when non numeric value is placed in text field
-                    try {
-                        redSlider.setValue(Integer.parseInt(redField.getText()));
-                    } catch (NumberFormatException ex) {
-                        redSlider.setValue(127);
-                        redField.setText("127");
-                    }
-
-                    redVal = redSlider.getValue();
-                    color = new Color(redVal, greenVal, blueVal);
-                }
-        );
-
-        greenField.addActionListener(
-                e -> {
-                    try {
-                        greenSlider.setValue(Integer.parseInt(greenField.getText()));
-                    } catch (NumberFormatException ex) {
-                        greenSlider.setValue(127);
-                        greenField.setText("127");
-                    }
-
-                    greenVal = greenSlider.getValue();
-                    color = new Color(redVal, greenVal, blueVal);
-                }
-        );
-
-        blueField.addActionListener(
-                e -> {
-                    try {
-                        blueSlider.setValue(Integer.parseInt(blueField.getText()));
-                    } catch (NumberFormatException ex) {
-                        blueSlider.setValue(127);
-                        blueField.setText("127");
-                    }
-
-                    blueVal = blueSlider.getValue();
-                    color = new Color(redVal, greenVal, blueVal);
-                }
-        );
+        // Add action listeners to text fields
+        redField.addActionListener(new FieldActionHandler());
+        greenField.addActionListener(new FieldActionHandler());
+        blueField.addActionListener(new FieldActionHandler());
 
         add(redLabel);
         add(redSlider);
@@ -141,5 +87,52 @@ public class MyColorChooser extends JPanel{
         add(blueField);
     }
 
+    private class SliderChangeHandler implements ChangeListener {
 
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            redVal = redSlider.getValue();
+            greenVal = greenSlider.getValue();
+            blueVal = blueSlider.getValue();
+
+            redField.setText(String.valueOf(redVal));
+            greenField.setText(String.valueOf(greenVal));
+            blueField.setText(String.valueOf(blueVal));
+
+            color = new Color(redVal, greenVal, blueVal);
+        }
+    }
+
+    private class FieldActionHandler implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                redSlider.setValue(Integer.parseInt(redField.getText()));
+            } catch (NumberFormatException ex) {
+                redSlider.setValue(127);
+                redField.setText("127");
+            }
+
+            try {
+                greenSlider.setValue(Integer.parseInt(redField.getText()));
+            } catch (NumberFormatException ex) {
+                greenSlider.setValue(127);
+                greenField.setText("127");
+            }
+
+            try {
+                blueSlider.setValue(Integer.parseInt(blueField.getText()));
+            } catch (NumberFormatException ex) {
+                blueSlider.setValue(127);
+                blueField.setText("127");
+            }
+
+            color = new Color(redVal, greenVal, blueVal);
+        }
+    }
+
+    public Color getColor() {
+        return color;
+    }
 }
