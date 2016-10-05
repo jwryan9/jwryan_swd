@@ -8,8 +8,9 @@ import java.awt.event.KeyEvent;
  */
 public class ArabicToRomanFrame extends JFrame {
 
-    // Constants for number of columns required in text fields.
+    // Constant for number of columns required in text fields.
     private static final int FIELD_COLS = 13;
+
     private final JTextField romanField;
     private final JTextField arabicField;
 
