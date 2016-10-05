@@ -2,7 +2,7 @@
  * Created by jasonryan on 10/3/16.
  */
 public class BaseStudent {
-    private String firstName, lastName;
+    private final String firstName, lastName;
     private int studentID, numberOfRegisteredHours;
 
     // Constructor
@@ -17,16 +17,8 @@ public class BaseStudent {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public int getStudentID() {

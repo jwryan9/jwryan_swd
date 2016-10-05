@@ -18,6 +18,10 @@ public class LiberalIowaGraduate extends LiberalIowaStudent {
                 this.fullLoad, this.getDiscountUptoFull(), this.getDiscountAfterFull());
     }
 
+    public String getStudentStatus() {
+        return studentStatus;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\nStudent Status: " + studentStatus + "\nTuition Owed: $" + String.format("%.2f\n", tuition);

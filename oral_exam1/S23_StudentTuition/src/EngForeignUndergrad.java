@@ -18,6 +18,10 @@ public class EngForeignUndergrad extends EngForeignStudent {
                 this.fullLoad, this.getSurchargUptoFull(), this.getSurchargeAfterFull());
     }
 
+    public String getStudentStatus() {
+        return studentStatus;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\nStudent Status: " + studentStatus + "\nTuition Owed: $" + String.format("%.2f\n", tuition);

@@ -19,6 +19,10 @@ public class ForeignStudent extends BaseStudent {
         return surchargeAfterFull;
     }
 
+    public String getPlaceOfResidence() {
+        return placeOfResidence;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\nResidency: " + placeOfResidence;

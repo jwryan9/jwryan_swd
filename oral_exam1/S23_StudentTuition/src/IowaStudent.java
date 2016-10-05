@@ -20,6 +20,10 @@ public class IowaStudent extends BaseStudent {
         return discountAfterFull;
     }
 
+    public String getPlaceOfResidence() {
+        return placeOfResidence;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "\nResidency: " + placeOfResidence;

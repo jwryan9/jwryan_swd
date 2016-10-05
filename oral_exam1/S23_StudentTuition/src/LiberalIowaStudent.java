@@ -19,6 +19,10 @@ public class LiberalIowaStudent extends IowaStudent {
         return minHoursForFees;
     }
 
+    public String getCollegeEnrolled() {
+        return collegeEnrolled;
+    }
+
     @Override
     public String toString() {
         return  super.toString() + "\nCollege Enrolled: " + collegeEnrolled;

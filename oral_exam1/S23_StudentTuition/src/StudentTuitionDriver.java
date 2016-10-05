@@ -46,6 +46,7 @@ public class StudentTuitionDriver {
         System.out.println(student17);
         System.out.println(student18);
 
+        // Update tuition rate and tuition owed by students
         Tuition.setBaseClassHourTuitionRate(200);
         System.out.println("Tuition rate changed to $200\n");
 
