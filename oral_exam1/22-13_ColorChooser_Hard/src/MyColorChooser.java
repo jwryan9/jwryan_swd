@@ -57,15 +57,37 @@ public class MyColorChooser extends JPanel{
         );
 
         redField.addActionListener(
-                e -> redSlider.setValue(Integer.parseInt(redField.getText()))
+                e -> {
+                    // Catch exception when non numeric value is placed in text field
+                    try {
+                        redSlider.setValue(Integer.parseInt(redField.getText()));
+                    } catch (NumberFormatException ex) {
+                        redSlider.setValue(127);
+                        redField.setText("127");
+                    }
+                }
         );
 
         greenField.addActionListener(
-                e -> greenSlider.setValue(Integer.parseInt(greenField.getText()))
+                e -> {
+                    try {
+                        greenSlider.setValue(Integer.parseInt(greenField.getText()));
+                    } catch (NumberFormatException ex) {
+                        greenSlider.setValue(127);
+                        greenField.setText("127");
+                    }
+                }
         );
 
         blueField.addActionListener(
-                e -> blueSlider.setValue(Integer.parseInt(blueField.getText()))
+                e -> {
+                    try {
+                        blueSlider.setValue(Integer.parseInt(blueField.getText()));
+                    } catch (NumberFormatException ex) {
+                        blueSlider.setValue(127);
+                        blueField.setText("127");
+                    }
+                }
         );
 
         add(redLabel);
@@ -77,6 +99,7 @@ public class MyColorChooser extends JPanel{
         add(blueLabel);
         add(blueSlider);
         add(blueField);
+
 
     }
 
