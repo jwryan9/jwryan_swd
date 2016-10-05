@@ -2,7 +2,6 @@
  * Created by jasonryan on 10/3/16.
  */
 public class BaseStudent {
-    private int baseClassHourTuitionRate = 350;
     private String firstName, lastName;
     private int studentID, numberOfRegisteredHours;
 
@@ -12,14 +11,6 @@ public class BaseStudent {
         lastName = last;
         studentID = id;
         numberOfRegisteredHours = hours;
-    }
-
-    public int getBaseClassHourTuitionRate() {
-        return baseClassHourTuitionRate;
-    }
-
-    public void setBaseClassHourTuitionRate(int baseClassHourTuitionRate) {
-        this.baseClassHourTuitionRate = baseClassHourTuitionRate;
     }
 
     public String getFirstName() {

@@ -2,8 +2,8 @@
  * Created by jasonryan on 10/3/16.
  */
 public class IowaStudent extends BaseStudent {
-    private final int discountUptoFull = 35;
-    private final int discountAfterFull = 10;
+    private final double discountUptoFull = .35;
+    private final double discountAfterFull = .10;
 
     private final String placeOfResidence = "Iowa";
 
@@ -12,11 +12,11 @@ public class IowaStudent extends BaseStudent {
         super(first, last, id, hours);
     }
 
-    public int getDiscountUptoFull() {
+    public double getDiscountUptoFull() {
         return discountUptoFull;
     }
 
-    public int getDiscountAfterFull() {
+    public double getDiscountAfterFull() {
         return discountAfterFull;
     }
 
