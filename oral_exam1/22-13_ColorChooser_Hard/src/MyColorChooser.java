@@ -10,6 +10,10 @@ public class MyColorChooser extends JPanel{
     // Constants
     private final int FIELD_COLS = 3;
 
+    private final JLabel redLabel;
+    private final JLabel greenLabel;
+    private final JLabel blueLabel;
+
     private final JSlider redSlider;
     private final JSlider greenSlider;
     private final JSlider blueSlider;
@@ -17,6 +21,12 @@ public class MyColorChooser extends JPanel{
     private final JTextField redField;
     private final JTextField greenField;
     private final JTextField blueField;
+
+    private int redVal;
+    private int greenVal;
+    private int blueVal;
+
+    private Color color;
 
     public MyColorChooser() {
         super();
@@ -27,9 +37,9 @@ public class MyColorChooser extends JPanel{
         setLayout(layout);
 
 
-        JLabel redLabel = new JLabel("Red:");
-        JLabel greenLabel = new JLabel("Green:");
-        JLabel blueLabel = new JLabel("Blue:");
+        redLabel = new JLabel("Red:");
+        greenLabel = new JLabel("Green:");
+        blueLabel = new JLabel("Blue:");
 
         redSlider = new JSlider(0, 255);
         greenSlider = new JSlider(0, 255);
@@ -44,16 +54,37 @@ public class MyColorChooser extends JPanel{
         greenField.setText(String.valueOf(greenSlider.getValue()));
         blueField.setText(String.valueOf(blueSlider.getValue()));
 
+        // Set default color values
+        redVal = redSlider.getValue();
+        greenVal = greenSlider.getValue();
+        blueVal = blueSlider.getValue();
+
+        // Generate default color
+        color = new Color(redVal, greenVal, blueVal);
+
         redSlider.addChangeListener(
-                e -> redField.setText(String.valueOf(redSlider.getValue()))
+                e -> {
+                    redVal = redSlider.getValue();
+                    redField.setText(String.valueOf(redVal));
+                    color = new Color(redVal, greenVal, blueVal);
+                }
         );
 
         greenSlider.addChangeListener(
-                e -> greenField.setText(String.valueOf(greenSlider.getValue()))
+                e -> {
+                    greenVal = greenSlider.getValue();
+                    greenField.setText(String.valueOf(greenSlider.getValue()));
+                    color = new Color(redVal, greenVal, blueVal);
+                }
         );
 
         blueSlider.addChangeListener(
-                e -> blueField.setText(String.valueOf(blueSlider.getValue()))
+                e -> {
+                    blueVal = blueSlider.getValue();
+                    blueField.setText(String.valueOf(blueSlider.getValue()));
+                    color = new Color(redVal, greenVal, blueVal);
+
+                }
         );
 
         redField.addActionListener(
@@ -65,6 +96,9 @@ public class MyColorChooser extends JPanel{
                         redSlider.setValue(127);
                         redField.setText("127");
                     }
+
+                    redVal = redSlider.getValue();
+                    color = new Color(redVal, greenVal, blueVal);
                 }
         );
 
@@ -76,6 +110,9 @@ public class MyColorChooser extends JPanel{
                         greenSlider.setValue(127);
                         greenField.setText("127");
                     }
+
+                    greenVal = greenSlider.getValue();
+                    color = new Color(redVal, greenVal, blueVal);
                 }
         );
 
@@ -87,6 +124,9 @@ public class MyColorChooser extends JPanel{
                         blueSlider.setValue(127);
                         blueField.setText("127");
                     }
+
+                    blueVal = blueSlider.getValue();
+                    color = new Color(redVal, greenVal, blueVal);
                 }
         );
 
@@ -99,8 +139,7 @@ public class MyColorChooser extends JPanel{
         add(blueLabel);
         add(blueSlider);
         add(blueField);
-
-
     }
+
 
 }
