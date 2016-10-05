@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 /**
@@ -19,7 +20,16 @@ public class MyColorChooser extends JPanel{
 
     public MyColorChooser() {
         super();
-        setLayout(new GridLayout(3,2));
+        setBorder(new EmptyBorder(10, 10, 10, 10));
+        GridLayout layout = new GridLayout(3,3);
+        layout.setVgap(20);
+        layout.setHgap(10);
+        setLayout(layout);
+
+
+        JLabel redLabel = new JLabel("Red:");
+        JLabel greenLabel = new JLabel("Green:");
+        JLabel blueLabel = new JLabel("Blue:");
 
         redSlider = new JSlider(0, 255);
         greenSlider = new JSlider(0, 255);
@@ -29,11 +39,22 @@ public class MyColorChooser extends JPanel{
         greenField = new JTextField(FIELD_COLS);
         blueField = new JTextField(FIELD_COLS);
 
+        // Set default text field values
+        redField.setText(String.valueOf(redSlider.getValue()));
+        greenField.setText(String.valueOf(greenSlider.getValue()));
+        blueField.setText(String.valueOf(blueSlider.getValue()));
+
+        add(redLabel);
         add(redSlider);
         add(redField);
+        add(greenLabel);
         add(greenSlider);
         add(greenField);
+        add(blueLabel);
         add(blueSlider);
         add(blueField);
+
+
     }
+
 }
