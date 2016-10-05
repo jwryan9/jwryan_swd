@@ -9,8 +9,7 @@ import java.awt.event.KeyEvent;
 public class ArabicToRomanFrame extends JFrame {
 
     // Constants for number of columns required in text fields.
-    private static final int MAX_ROMAN = 13;
-    private static final int MAX_ARABIC = 13;
+    private static final int FIELD_COLS = 13;
     private final JTextField romanField;
     private final JTextField arabicField;
 
@@ -18,8 +17,8 @@ public class ArabicToRomanFrame extends JFrame {
         super("S15_ArabicToRomanGUI");
         setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        romanField = new JTextField(MAX_ROMAN);
-        arabicField = new JTextField(MAX_ARABIC);
+        romanField = new JTextField(FIELD_COLS);
+        arabicField = new JTextField(FIELD_COLS);
 
         JLabel romanLabel = new JLabel("Roman Numerals: ");
         JLabel arabicLabel = new JLabel("Arabic Digits: ");
