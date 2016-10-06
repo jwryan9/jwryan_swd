@@ -51,6 +51,7 @@ public class ArabicToRomanFrame extends JFrame {
                             romanField.setText("Invalid Arabic Number");
                         }
                     } catch (NumberFormatException ex) {
+                        arabicNum.setArabic(0);
                         romanField.setText("Invalid Arabic Number");
                     }
 
