@@ -16,6 +16,7 @@ public class MyColorChooser extends JPanel{
     private final int RGB_DEFAULT = 127;
     private final int RGB_MIN = 0;
     private final int RGB_MAX = 255;
+    private final int TICK_SPACING = 17;
 
     private final JLabel redLabel;
     private final JLabel greenLabel;
@@ -38,7 +39,7 @@ public class MyColorChooser extends JPanel{
     private int greenVal;
     private int blueVal;
 
-    private Color color;
+    //private Color color;
 
     public MyColorChooser() {
         super();
@@ -62,8 +63,6 @@ public class MyColorChooser extends JPanel{
         greenField = new JTextField(FIELD_COLS);
         blueField = new JTextField(FIELD_COLS);
 
-        rectanglePanel = new RectanglePanel();
-
         resetButton = new JButton("Reset Color");
 
         // Set default text field values
@@ -76,9 +75,16 @@ public class MyColorChooser extends JPanel{
         greenVal = greenSlider.getValue();
         blueVal = blueSlider.getValue();
 
-        // Generate default color and set rectangle color
-        color = new Color(redVal, greenVal, blueVal);
-        rectanglePanel.setColor(color);
+        // Add ticks to sliders
+        redSlider.setMajorTickSpacing(TICK_SPACING);
+        greenSlider.setMajorTickSpacing(TICK_SPACING);
+        blueSlider.setMajorTickSpacing(TICK_SPACING);
+        redSlider.setPaintTicks(true);
+        greenSlider.setPaintTicks(true);
+        blueSlider.setPaintTicks(true);
+
+        // Instantiate RectanglePanel
+        rectanglePanel = new RectanglePanel(redVal, greenVal, blueVal);
 
         // Add change listeners to sliders
         redSlider.addChangeListener(new SliderChangeHandler());
@@ -97,8 +103,9 @@ public class MyColorChooser extends JPanel{
                     setGreen(RGB_DEFAULT);
                     setBlue(RGB_DEFAULT);
 
-                    color = new Color(redVal, greenVal, blueVal);
-                    rectanglePanel.setColor(color);
+                    rectanglePanel.setRedVal(redVal);
+                    rectanglePanel.setGreenVal(greenVal);
+                    rectanglePanel.setBlueVal(blueVal);
                 }
         );
 
@@ -125,8 +132,9 @@ public class MyColorChooser extends JPanel{
             setGreen(greenSlider.getValue());
             setBlue(blueSlider.getValue());
 
-            color = new Color(redVal, greenVal, blueVal);
-            rectanglePanel.setColor(color);
+            rectanglePanel.setRedVal(redVal);
+            rectanglePanel.setGreenVal(greenVal);
+            rectanglePanel.setBlueVal(blueVal);
         }
     }
 
@@ -141,22 +149,22 @@ public class MyColorChooser extends JPanel{
                 setRed(Integer.parseInt(redField.getText()));
             } catch (Exception ex) {
                 setRed(redSlider.getValue());
+                rectanglePanel.setRedVal(redVal);
             }
 
             try {
                 setGreen(Integer.parseInt(greenField.getText()));
             } catch (Exception ex) {
                 setGreen(greenSlider.getValue());
+                rectanglePanel.setGreenVal(greenVal);
             }
 
             try {
                 setBlue(Integer.parseInt(blueField.getText()));
             } catch (Exception ex) {
                 setBlue(blueSlider.getValue());
+                rectanglePanel.setBlueVal(blueVal);
             }
-
-            color = new Color(redVal, greenVal, blueVal);
-            rectanglePanel.setColor(color);
         }
     }
 

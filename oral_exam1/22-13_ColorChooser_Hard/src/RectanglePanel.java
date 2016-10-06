@@ -11,6 +11,12 @@ public class RectanglePanel extends JPanel {
     private int greenVal;
     private int blueVal;
 
+    RectanglePanel(int red, int green, int blue) {
+        setRedVal(red);
+        setGreenVal(green);
+        setBlueVal(blue);
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -33,11 +39,6 @@ public class RectanglePanel extends JPanel {
     public void setBlueVal(int blueVal) {
         this.blueVal = blueVal;
         color = new Color(redVal, greenVal, blueVal);
-        repaint();
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
         repaint();
     }
 }
