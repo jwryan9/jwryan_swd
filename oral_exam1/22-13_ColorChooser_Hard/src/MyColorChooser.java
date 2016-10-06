@@ -119,16 +119,11 @@ public class MyColorChooser extends JPanel{
 
         @Override
         public void stateChanged(ChangeEvent e) {
-            redVal = redSlider.getValue();
-            greenVal = greenSlider.getValue();
-            blueVal = blueSlider.getValue();
-
-            redField.setText(String.valueOf(redVal));
-            greenField.setText(String.valueOf(greenVal));
-            blueField.setText(String.valueOf(blueVal));
+            setRed(redSlider.getValue());
+            setGreen(greenSlider.getValue());
+            setBlue(blueSlider.getValue());
 
             color = new Color(redVal, greenVal, blueVal);
-
             rectanglePanel.setColor(color);
         }
     }
@@ -139,29 +134,22 @@ public class MyColorChooser extends JPanel{
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                redSlider.setValue(Integer.parseInt(redField.getText()));
+                setRed(Integer.parseInt(redField.getText()));
             } catch (NumberFormatException ex) {
-                redSlider.setValue(RGB_DEFAULT);
-                redField.setText(String.valueOf(RGB_DEFAULT));
+                setRed(RGB_DEFAULT);
             }
 
             try {
-                greenSlider.setValue(Integer.parseInt(greenField.getText()));
+                setGreen(Integer.parseInt(greenField.getText()));
             } catch (NumberFormatException ex) {
-                greenSlider.setValue(RGB_DEFAULT);
-                greenField.setText(String.valueOf(RGB_DEFAULT));
+                setGreen(RGB_DEFAULT);
             }
 
             try {
-                blueSlider.setValue(Integer.parseInt(blueField.getText()));
+                setBlue(Integer.parseInt(blueField.getText()));
             } catch (NumberFormatException ex) {
-                blueSlider.setValue(RGB_DEFAULT);
-                blueField.setText(String.valueOf(RGB_DEFAULT));
+                setBlue(RGB_DEFAULT);
             }
-
-            redVal = redSlider.getValue();
-            greenVal = greenSlider.getValue();
-            blueVal = blueSlider.getValue();
 
             color = new Color(redVal, greenVal, blueVal);
             rectanglePanel.setColor(color);
