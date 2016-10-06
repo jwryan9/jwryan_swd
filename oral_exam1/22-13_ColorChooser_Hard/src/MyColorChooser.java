@@ -39,8 +39,6 @@ public class MyColorChooser extends JPanel{
     private int greenVal;
     private int blueVal;
 
-    //private Color color;
-
     public MyColorChooser() {
         super();
         setBorder(new EmptyBorder(10, 10, 10, 10));
