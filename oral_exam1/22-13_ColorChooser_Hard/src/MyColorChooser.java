@@ -13,6 +13,7 @@ public class MyColorChooser extends JPanel{
 
     // Constants
     private final int FIELD_COLS = 3;
+    private final int RGB_DEFAULT = 127;
 
     private final JLabel redLabel;
     private final JLabel greenLabel;
@@ -26,6 +27,8 @@ public class MyColorChooser extends JPanel{
     private final JTextField redField;
     private final JTextField greenField;
     private final JTextField blueField;
+
+    private final JButton resetButton;
 
     private final RectanglePanel rectanglePanel;
 
@@ -59,6 +62,8 @@ public class MyColorChooser extends JPanel{
 
         rectanglePanel = new RectanglePanel();
 
+        resetButton = new JButton("Reset Color");
+
         // Set default text field values
         redField.setText(String.valueOf(redSlider.getValue()));
         greenField.setText(String.valueOf(greenSlider.getValue()));
@@ -83,6 +88,18 @@ public class MyColorChooser extends JPanel{
         greenField.addActionListener(new FieldActionHandler());
         blueField.addActionListener(new FieldActionHandler());
 
+        // Add action listener for resetButton
+        resetButton.addActionListener(
+                e -> {
+                    setRed(RGB_DEFAULT);
+                    setGreen(RGB_DEFAULT);
+                    setBlue(RGB_DEFAULT);
+
+                    color = new Color(redVal, greenVal, blueVal);
+                    rectanglePanel.setColor(color);
+                }
+        );
+
         add(redLabel);
         add(redSlider);
         add(redField);
@@ -94,6 +111,7 @@ public class MyColorChooser extends JPanel{
         add(blueField);
         add(colorLabel);
         add(rectanglePanel);
+        add(resetButton);
     }
 
     // Inner class for slider event handling
@@ -123,22 +141,22 @@ public class MyColorChooser extends JPanel{
             try {
                 redSlider.setValue(Integer.parseInt(redField.getText()));
             } catch (NumberFormatException ex) {
-                redSlider.setValue(127);
-                redField.setText("127");
+                redSlider.setValue(RGB_DEFAULT);
+                redField.setText(String.valueOf(RGB_DEFAULT));
             }
 
             try {
                 greenSlider.setValue(Integer.parseInt(greenField.getText()));
             } catch (NumberFormatException ex) {
-                greenSlider.setValue(127);
-                greenField.setText("127");
+                greenSlider.setValue(RGB_DEFAULT);
+                greenField.setText(String.valueOf(RGB_DEFAULT));
             }
 
             try {
                 blueSlider.setValue(Integer.parseInt(blueField.getText()));
             } catch (NumberFormatException ex) {
-                blueSlider.setValue(127);
-                blueField.setText("127");
+                blueSlider.setValue(RGB_DEFAULT);
+                blueField.setText(String.valueOf(RGB_DEFAULT));
             }
 
             redVal = redSlider.getValue();
@@ -150,7 +168,21 @@ public class MyColorChooser extends JPanel{
         }
     }
 
-    public Color getColor() {
-        return color;
+    private void setRed(int red) {
+        redVal = red;
+        redField.setText(String.valueOf(red));
+        redSlider.setValue(red);
+    }
+
+    private void setGreen(int green) {
+        greenVal = green;
+        greenField.setText(String.valueOf(green));
+        greenSlider.setValue(green);
+    }
+
+    private void setBlue(int blue) {
+        blueVal = blue;
+        blueField.setText(String.valueOf(blue));
+        blueSlider.setValue(blue);
     }
 }
