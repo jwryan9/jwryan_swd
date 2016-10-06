@@ -11,7 +11,7 @@ public class KeyGenerator {
     }
 
     private int randomInt(int range) {
-        int rand;
+        int rand = 0;
 
         return rand;
     }
