@@ -135,22 +135,24 @@ public class MyColorChooser extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
+            // When user enters invalid input keep
             try {
                 setRed(Integer.parseInt(redField.getText()));
             } catch (Exception ex) {
-                setRed(RGB_DEFAULT);
+                setRed(redSlider.getValue());
             }
 
             try {
                 setGreen(Integer.parseInt(greenField.getText()));
             } catch (Exception ex) {
-                setGreen(RGB_DEFAULT);
+                setGreen(greenSlider.getValue());
             }
 
             try {
                 setBlue(Integer.parseInt(blueField.getText()));
             } catch (Exception ex) {
-                setBlue(RGB_DEFAULT);
+                setBlue(blueSlider.getValue());
             }
 
             color = new Color(redVal, greenVal, blueVal);
