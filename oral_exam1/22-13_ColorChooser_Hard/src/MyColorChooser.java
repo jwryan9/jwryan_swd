@@ -14,6 +14,8 @@ public class MyColorChooser extends JPanel{
     // Constants
     private final int FIELD_COLS = 3;
     private final int RGB_DEFAULT = 127;
+    private final int RGB_MIN = 0;
+    private final int RGB_MAX = 255;
 
     private final JLabel redLabel;
     private final JLabel greenLabel;
@@ -135,19 +137,19 @@ public class MyColorChooser extends JPanel{
         public void actionPerformed(ActionEvent e) {
             try {
                 setRed(Integer.parseInt(redField.getText()));
-            } catch (NumberFormatException ex) {
+            } catch (Exception ex) {
                 setRed(RGB_DEFAULT);
             }
 
             try {
                 setGreen(Integer.parseInt(greenField.getText()));
-            } catch (NumberFormatException ex) {
+            } catch (Exception ex) {
                 setGreen(RGB_DEFAULT);
             }
 
             try {
                 setBlue(Integer.parseInt(blueField.getText()));
-            } catch (NumberFormatException ex) {
+            } catch (Exception ex) {
                 setBlue(RGB_DEFAULT);
             }
 
@@ -156,21 +158,33 @@ public class MyColorChooser extends JPanel{
         }
     }
 
-    private void setRed(int red) {
-        redVal = red;
-        redField.setText(String.valueOf(red));
-        redSlider.setValue(red);
+    private void setRed(int red) throws IllegalArgumentException {
+        if(red < RGB_MIN || red > RGB_MAX)
+            throw new IllegalArgumentException();
+        else {
+            redVal = red;
+            redField.setText(String.valueOf(red));
+            redSlider.setValue(red);
+        }
     }
 
-    private void setGreen(int green) {
-        greenVal = green;
-        greenField.setText(String.valueOf(green));
-        greenSlider.setValue(green);
+    private void setGreen(int green) throws IllegalArgumentException {
+        if(green < RGB_MIN || green > RGB_MAX)
+            throw new IllegalArgumentException();
+        else {
+            greenVal = green;
+            greenField.setText(String.valueOf(green));
+            greenSlider.setValue(green);
+        }
     }
 
-    private void setBlue(int blue) {
-        blueVal = blue;
-        blueField.setText(String.valueOf(blue));
-        blueSlider.setValue(blue);
+    private void setBlue(int blue) throws IllegalArgumentException {
+        if(blue < RGB_MIN || blue > RGB_MAX)
+            throw new IllegalArgumentException();
+        else {
+            blueVal = blue;
+            blueField.setText(String.valueOf(blue));
+            blueSlider.setValue(blue);
+        }
     }
 }

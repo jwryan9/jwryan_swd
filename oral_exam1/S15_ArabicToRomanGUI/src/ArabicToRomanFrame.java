@@ -47,6 +47,9 @@ public class ArabicToRomanFrame extends JFrame {
                     // Implement exception handling when user does not a valid number
                     try {
                         arabicNum.setArabic(Integer.parseInt(arabicField.getText()));
+                        if(arabicNum.getArabic() <= 0) {
+                            romanField.setText("Invalid Arabic Number");
+                        }
                     } catch (NumberFormatException ex) {
                         romanField.setText("Invalid Arabic Number");
                     }
