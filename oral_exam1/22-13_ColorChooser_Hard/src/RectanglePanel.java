@@ -15,7 +15,7 @@ public class RectanglePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(color);
-        g.fillRect(10,10,200,100);
+        g.fillRect(10,10,150,100);
     }
 
     public void setRedVal(int redVal) {
