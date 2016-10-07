@@ -6,11 +6,8 @@ import java.util.Scanner;
  */
 public class OneTimePadTest {
 
-    private static final char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-
     public static void main(String[] args) {
-        String message, encrypted, keyText;
+        String message, encrypted;
         int numKeys;
         int[] keyArr;
 
