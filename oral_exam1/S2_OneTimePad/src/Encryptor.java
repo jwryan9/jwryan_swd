@@ -1,4 +1,5 @@
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -6,53 +7,47 @@ import java.util.Scanner;
  */
 public class Encryptor {
 
-    private char[] messageChars;
-    private char[] encryptedChars;
-    private String encryptedText = "";
-    private final char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+    private final int MAX_KEY = 26;
+    private final int ALPHA_LENGTH = 26;
+
+    private static final char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
                                     'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
+    private String encryptedText = "";
+    private int[] keys;
+
     public static void main(String[] args) {
-        String message;
-        int key = 0;
-        Scanner kb = new Scanner(System.in);
 
-        System.out.println("Enter message.");
-        message = kb.nextLine();
-        message.toUpperCase();
-
-        System.out.println("Enter positive integer key.");
-        do {
-            try {
-                key = kb.nextInt();
-
-                if(key <= 0) {
-                    System.out.println("Key must be greater than zero. Please enter valid key.");
-                }
-
-            } catch (InputMismatchException ex) {
-                System.out.println("Invalid key entered. Please enter valid key.");
-                kb.nextLine();
-            }
-        } while (key <= 0);
-
-        new Encryptor(message, key);
     }
 
-    public Encryptor(String message, int key) {
-        encryptedText = encrypt(message.toUpperCase(), key);
-        System.out.println(message);
-        System.out.println(encryptedText);
+    public Encryptor(String message) {
+        keys = generateKeys(messageLength(message));
+        encrypt(message.toUpperCase(), keys);
     }
 
-    private String encrypt(String message, int key) {
-        char let;
-        char encryptLet;
-        encryptedChars = new char[message.length()];
+    public String getEncryptedText() {
+        return encryptedText;
+    }
 
-        messageChars = message.toCharArray();
+    public int[] getKeys() {
+        return keys;
+    }
+
+    // Method gets length of message without counting spaces
+    private int messageLength(String message) {
+        return message.replace(" ", "").length();
+    }
+
+    private void encrypt(String message, int[] keys) {
+        char let, encryptLet;
+        int key;
+        int keyIt = 0;
+
+        char[] messageChars = message.toCharArray();
 
         for(int i = 0; i < message.length(); i++) {
+
+            key = keys[keyIt];
             let = messageChars[i];
             encryptLet = ' ';
 
@@ -61,15 +56,28 @@ public class Encryptor {
                     char alpha = alphabet[j];
 
                     if(let == alpha)
-                        encryptLet = alphabet[(j + key) % 26];
+                        // Use mod function to wrap to start of array when alphabet end is reached
+                        encryptLet = alphabet[(j + key) % ALPHA_LENGTH];
                 }
+
+                // Increment key iterator only on non-space character
+                keyIt++;
             }
 
-            encryptedChars[i] = encryptLet;
+            // Build String with encrypted letters
             encryptedText += encryptLet;
         }
+    }
 
-        return encryptedText;
+    private int[] generateKeys(int num) {
+        int[] rand = new int[num];
+        Random randGen = new Random();
+
+        for(int i=0; i < num; i++) {
+            rand[i] = randGen.nextInt(MAX_KEY);
+        }
+
+        return rand;
     }
 
 
