@@ -16,10 +16,6 @@ public class Encryptor {
     private String encryptedText = "";
     private int[] keys;
 
-    public static void main(String[] args) {
-
-    }
-
     public Encryptor(String message) {
         keys = generateKeys(messageLength(message));
         encrypt(message.toUpperCase(), keys);
@@ -39,21 +35,20 @@ public class Encryptor {
     }
 
     private void encrypt(String message, int[] keys) {
-        char let, encryptLet;
+        char alpha, let, encryptLet;
         int key;
         int keyIt = 0;
 
         char[] messageChars = message.toCharArray();
 
         for(int i = 0; i < message.length(); i++) {
-
             key = keys[keyIt];
             let = messageChars[i];
             encryptLet = ' ';
 
             if(let != ' ') {
                 for(int j = 0; j < alphabet.length; j++) {
-                    char alpha = alphabet[j];
+                    alpha = alphabet[j];
 
                     if(let == alpha)
                         // Use mod function to wrap to start of array when alphabet end is reached
