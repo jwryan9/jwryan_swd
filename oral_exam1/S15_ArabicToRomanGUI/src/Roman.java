@@ -68,6 +68,6 @@ public class Roman {
     // Method validates Roman Numeral rules
     private boolean validateRoman(String roman) {
         // Regular expression validates Roman Numeral rules
-        return roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+        return roman.matches("M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})");
     }
 }
