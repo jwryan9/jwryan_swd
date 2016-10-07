@@ -8,9 +8,17 @@ public class Decryptor {
     private static final char[] alphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
+    private String decryptedText = "";
 
-    public static String decrypt(String encrypted, int[] keys) {
-        String decrypted = "";
+    public Decryptor(String encrypted, int[] keys) {
+        decrypt(encrypted, keys);
+    }
+
+    public String getDecryptedText() {
+        return decryptedText;
+    }
+
+    private void decrypt(String encrypted, int[] keys) {
         char alpha, let, decryptLet;
         int key;
         int keyIt = 0;
@@ -34,9 +42,7 @@ public class Decryptor {
                 keyIt++;
             }
 
-            decrypted += decryptLet;
+            decryptedText += decryptLet;
         }
-
-        return decrypted;
     }
 }

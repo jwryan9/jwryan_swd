@@ -30,7 +30,7 @@ public class Encryptor {
     }
 
     // Method gets length of message without counting spaces
-    private int messageLength(String message) {
+    public int messageLength(String message) {
         return message.replace(" ", "").length();
     }
 
