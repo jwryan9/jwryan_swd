@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ComputusTestRun {
     public static void main(String[] args) {
-        int year, selection = 0;
+        int year = 0, selection = 0;
         Scanner kb = new Scanner(System.in);
 
         while (selection != 3) {
@@ -23,6 +23,7 @@ public class ComputusTestRun {
                             year = kb.nextInt();
                         } catch(Exception ex) {
                             System.out.println("Invalid Input.");
+                            year = 0;
                             kb.nextLine();
                             break;
                         }
