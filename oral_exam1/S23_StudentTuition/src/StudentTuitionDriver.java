@@ -1,7 +1,15 @@
 /**
- * Created by jasonryan on 10/3/16.
+ * Driver class to demonstrate the capabilities of the StudentTuition assignment
+ *
+ * @author Jason Ryan
  */
 public class StudentTuitionDriver {
+
+    /**
+     * Main method
+     *
+     * @param args String[]
+     */
     public static void main(String[] args) {
         EngIowaUndergrad student1 = new EngIowaUndergrad("Student", "One", 1, 15);
         EngIowaGraduate student2 = new EngIowaGraduate("Student", "Two", 2, 10);
