@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 /**
- * Created by jasonryan on 10/4/16.
+ * Driver class to show off ColorChooser functionality
  */
 public class ColorChooserDriver {
     public static void main(String[] args) {
