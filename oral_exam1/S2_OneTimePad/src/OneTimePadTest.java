@@ -2,10 +2,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Created by jwryan on 8/31/16.
+ * Driver class to demonstrate the capabilities of OneTimePad
  */
 public class OneTimePadTest {
 
+    /**
+     * Main method of oneTimePadTest class
+     *
+     * @param args String[]
+     */
     public static void main(String[] args) {
         String message, encrypted;
         int numKeys;

@@ -1,5 +1,7 @@
 /**
- * Created by jasonryan on 9/1/16.
+ * Class for decrypting user message
+ *
+ * @author Jason Ryan
  */
 public class Decryptor {
 
@@ -10,14 +12,31 @@ public class Decryptor {
 
     private String decryptedText = "";
 
+    /**
+     * Constructor
+     *
+     * @param encrypted String encrypted text to be decrypted
+     * @param keys int[] of keys to use for decryption
+     */
     public Decryptor(String encrypted, int[] keys) {
         decrypt(encrypted, keys);
     }
 
+    /**
+     * Getter for decryptedText
+     *
+     * @return String decryptedText
+     */
     public String getDecryptedText() {
         return decryptedText;
     }
 
+    /**
+     * Decrypts encrypted text using provided keys
+     *
+     * @param encrypted String text to be decrypted
+     * @param keys int[] keys used for decryption
+     */
     private void decrypt(String encrypted, int[] keys) {
         char alpha, let, decryptLet;
         int key;
