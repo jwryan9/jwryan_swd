@@ -87,8 +87,6 @@ public class Roman {
         return romanArabicMap;
     }
 
-    // Method validates Roman Numeral rules
-
     /**
      * Validates Roman Numerals
      *

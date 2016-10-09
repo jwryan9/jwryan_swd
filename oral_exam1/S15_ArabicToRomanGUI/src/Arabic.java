@@ -52,8 +52,6 @@ public class Arabic {
         arabic = num;
     }
 
-    // Method to get value of arabic
-
     /**
      * Getter method for arabic
      *
@@ -62,8 +60,6 @@ public class Arabic {
     public int getArabic() {
         return arabic;
     }
-
-    // Method generates a TreeMap with Integer keys of arabic numbers and String values of Roman Numerals
 
     /**
      * Generates TreeMap of matching Arabic and Roman Numeral values
