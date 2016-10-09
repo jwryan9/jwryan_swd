@@ -14,7 +14,7 @@ public class ComputusCycle {
     /**
      * Method to generate TreeMap containing all possible Easter dates and the number of occurrences in each Computs cycle
      *
-     * @return TreeMap<Easter, Integer> maintains count of all dates in computus cycle
+     * @return TreeMap maintains count of all occurrences of Easter dates in Computus cycle
      */
     private static TreeMap<Easter, Integer> generateCycleMap() {
         // Create map of easter dates and count of repeated dates
@@ -34,7 +34,7 @@ public class ComputusCycle {
     }
 
     /**
-     * Method to output occurances of Easter on each date in Computus cycle
+     * Method to output occurrences of Easter on each date in Computus cycle
      */
     public static void displayCycleCounts() {
         TreeMap<Easter, Integer> easterTreeMap = generateCycleMap();

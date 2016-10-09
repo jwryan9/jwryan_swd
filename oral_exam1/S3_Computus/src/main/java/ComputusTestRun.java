@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ComputusTestRun {
     public static void main(String[] args) {
-        int year = 0, selection = 0;
+        int year, selection = 0;
         Scanner kb = new Scanner(System.in);
 
         // Implementation of menu system for user interaction

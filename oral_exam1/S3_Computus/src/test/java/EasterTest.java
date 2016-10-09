@@ -15,7 +15,7 @@ import java.io.IOException;
 public class EasterTest {
 
     private final int START_YEAR = 2000;
-    private final String easterDatesFile = "src/test/java/EasterDates2000_2024.txt";
+
     private BufferedReader reader;
 
     /**
@@ -38,7 +38,9 @@ public class EasterTest {
     public void toStringTest() {
         int currentYear = START_YEAR;
 
+        final String easterDatesFile = "src/test/java/EasterDates2000_2024.txt";
         String eString, line;
+
         openFile(easterDatesFile);
 
         // Catch IOException thrown by readLine() or close()

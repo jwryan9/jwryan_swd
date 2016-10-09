@@ -18,8 +18,7 @@ public class Easter implements Comparable<Easter> {
     }
 
     /**
-     * Generates month/day combination corresponding
-     * to the date of easterin a given year.
+     * Generates month/day combination corresponding to the date of Easter in a given year.
      *
      * @param year integer for year used to generate Easter date
      */
