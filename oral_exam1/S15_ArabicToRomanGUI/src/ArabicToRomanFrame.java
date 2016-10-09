@@ -4,7 +4,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by jasonryan on 9/14/16.
+ * Class for frame containing Arabic to Roman Numeral converter
+ *
+ * @author Jason Ryan
  */
 public class ArabicToRomanFrame extends JFrame {
 
@@ -14,6 +16,9 @@ public class ArabicToRomanFrame extends JFrame {
     private final JTextField romanField;
     private final JTextField arabicField;
 
+    /**
+     * Constructor, instantiates JTextFields and JLabels and adds them to frame
+     */
     public ArabicToRomanFrame() {
         super("S15_ArabicToRomanGUI");
         setLayout(new FlowLayout(FlowLayout.LEFT));

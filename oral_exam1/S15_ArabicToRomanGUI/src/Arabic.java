@@ -1,12 +1,18 @@
 import java.util.TreeMap;
 
 /**
- * Created by jasonryan on 9/30/16.
+ * Class for Arabic numbers
+ *
+ * @author Jason Ryan
  */
 public class Arabic {
     private int arabic;
 
-    // Constructor
+    /**
+     * Constructor
+     *
+     * @param arabicStr String of Arabic numbers
+     */
     public Arabic(String arabicStr) {
         if(arabicStr.length() != 0)
             arabic = Integer.parseInt(arabicStr);
@@ -14,7 +20,12 @@ public class Arabic {
             arabic = 0;
     }
 
-    // Method for converting arabic numbers to Roman Numerals
+    /**
+     * Converts Arabic numbers to Roman Numerals
+     *
+     * @param arabic int Arabic number to be converted
+     * @return String Roman Numeral equivalent ot Arabic number passed in
+     */
     public String convert(int arabic) {
         if(arabic > 3999 || arabic < 1)
             return "Invalid Arabic Number";
@@ -32,17 +43,33 @@ public class Arabic {
         return arabicRoman.get(num) + convert(arabic - num);
     }
 
-    // Method to set value of arabic
+    /**
+     * Setter method for arabic
+     *
+     * @param num int new Arabic number
+     */
     public void setArabic(int num) {
         arabic = num;
     }
 
     // Method to get value of arabic
+
+    /**
+     * Getter method for arabic
+     *
+     * @return int value of Arabic number
+     */
     public int getArabic() {
         return arabic;
     }
 
     // Method generates a TreeMap with Integer keys of arabic numbers and String values of Roman Numerals
+
+    /**
+     * Generates TreeMap of matching Arabic and Roman Numeral values
+     *
+     * @return TreeMap of mathcing Arabic and Roman Numeral values
+     */
     private TreeMap<Integer, String> arabicRomanTreeMap() {
         TreeMap<Integer, String> arabicRomanMap = new TreeMap<>();
 
@@ -61,11 +88,5 @@ public class Arabic {
         arabicRomanMap.put(1000,"M");
 
         return arabicRomanMap;
-    }
-
-    private boolean validateArabic(int arabic) {
-        if (arabic < 1 || arabic > 3999)
-            return false;
-        return true;
     }
 }

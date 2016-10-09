@@ -1,17 +1,27 @@
 import java.util.TreeMap;
 
 /**
- * Created by jasonryan on 9/30/16.
+ * Class for Roman Numerals
+ *
+ * @author JAson Ryan
  */
 public class Roman {
     private String roman;
 
-    // Constructor
+    /**
+     * Constructor
+     *
+     * @param romanNum String Roman Numeral
+     */
     public Roman(String romanNum) {
         roman = romanNum.toUpperCase();
     }
 
-    // Method converts String roman numeral input to integer arabic output
+    /**
+     * Converts Roman Numeral to Arabic number
+     *
+     * @return String equivalent Arabic value
+     */
     public String convert() {
 
         // Validate Roman Numeral input before making conversion
@@ -40,17 +50,29 @@ public class Roman {
         return Integer.toString(arabic);
     }
 
-    // Method to set roman String
+    /**
+     * Setter for roman
+     *
+     * @param romanNum String Roman Numerals for roman
+     */
     public void setRoman(String romanNum) {
         roman = romanNum;
     }
 
-    // Method to get roman String
+    /**
+     * Getter for roman
+     *
+     * @return String roman
+     */
     public String getRoman() {
         return roman;
     }
 
-    // Method generates a TreeMap with Character keys of Roman Numerals and Integer values of arabic numbers
+    /**
+     * Generates TreeMap with Character keys of Roman Numerals and Integer values of arabic numbers
+     *
+     * @return TreeMap corresponding Roman Numeral and Arabic values
+     */
     private TreeMap<Character, Integer> romanArabicTreeMap() {
         TreeMap<Character, Integer> romanArabicMap = new TreeMap<>();
 
@@ -66,6 +88,13 @@ public class Roman {
     }
 
     // Method validates Roman Numeral rules
+
+    /**
+     * Validates Roman Numerals
+     *
+     * @param roman String Roman Numerals to validate
+     * @return boolean valid or invalid
+     */
     private boolean validateRoman(String roman) {
         // Regular expression validates Roman Numeral rules
         return roman.matches("M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})");

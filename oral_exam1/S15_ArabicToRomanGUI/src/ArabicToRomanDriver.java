@@ -1,11 +1,18 @@
 import javax.swing.*;
 
 /**
- * Created by jasonryan on 9/14/16.
+ * Driver class to demonstrate capabilaties of ArabicToRoman assignment
+ *
+ * @author Jason Ryan
  */
 public class ArabicToRomanDriver {
-    public static void main(String[] args) {
 
+    /**
+     * Main method
+     *
+     * @param args String[]
+     */
+    public static void main(String[] args) {
         ArabicToRomanFrame frame = new ArabicToRomanFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(410, 100);
