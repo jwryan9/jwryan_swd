@@ -1,15 +1,28 @@
 package main.java;
 
 /**
- * Created by jasonryan on 9/1/16.
+ * Class for Easter date calculations and comparisons.
+ *
+ * @author Jason Ryan
  */
 public class Easter implements Comparable<Easter> {
     private int month, day;
 
+    /**
+     * Easter constructor
+     *
+     * @param year integer for year used to generate Easter date
+     */
     public Easter(int year) {
         generateDate(year);
     }
 
+    /**
+     * Generates month/day combination corresponding
+     * to the date of easterin a given year.
+     *
+     * @param year integer for year used to generate Easter date
+     */
     private void generateDate(int year) {
         int Y, a, b, c, d, e, f, g, h, i, k, L, m;
 
@@ -33,15 +46,30 @@ public class Easter implements Comparable<Easter> {
         day = ((h + L - 7 * m + 114) % 31) + 1;
     }
 
+    /**
+     * Getter for Easter month
+     *
+     * @return integer corresponding to month of Easter object
+     */
     public int getMonth() {
         return month;
     }
 
+    /**
+     * Getter for Easter day
+     *
+     * @return integer corresponding to day of Easter object
+     */
     public int getDay() {
         return day;
     }
 
-    // Method allows the comparison of Easter objects for sorting in TreeMap
+    /**
+     * Method allows the comparison of Easter objects for sorting in TreeMap
+     *
+     * @param e Easter object for comparison
+     * @return integer 0 if Easter dates are same, 1 if this date is later than e, -1 if this date is earlier than e
+     */
     @Override
     public int compareTo(Easter e) {
         if (this.getMonth() == e.getMonth()) {
@@ -58,7 +86,11 @@ public class Easter implements Comparable<Easter> {
             return -1;
     }
 
-    // Overrides default toString method
+    /**
+     * Overrides default toString method
+     *
+     * @return String with day and month of Easter date
+     */
     @Override
     public String toString() {
         String monthString;

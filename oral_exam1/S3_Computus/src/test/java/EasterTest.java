@@ -1,21 +1,28 @@
 package test.java;
 
 import main.java.Easter;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 /**
- * Created by jasonryan on 9/6/16.
+ * Class for JUnit testing of Computus assignment, required for completion of hard
+ * Source of known Easter dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
+ *
+ * @author Jason Ryan
  */
 public class EasterTest {
 
     private final int START_YEAR = 2000;
-    private final String easterDatesFile = "src/test/java/EasterDates2000_2024.txt"; // Source of dates: http://tlarsen2.tripod.com/thomaslarsen/easterdates.html
-
+    private final String easterDatesFile = "src/test/java/EasterDates2000_2024.txt";
     private BufferedReader reader;
 
+    /**
+     * Method attempts to open file in a BufferedReader
+     *
+     * @param filename String containing filepath/name to be opened
+     */
     private void openFile(String filename) {
         try {
             reader = new BufferedReader(new FileReader(filename));
@@ -24,22 +31,31 @@ public class EasterTest {
         }
     }
 
+    /**
+     * Test's Easter's toString method against file of known Easter dates
+     */
     @org.junit.Test
-    public void toStringTest() throws Exception {
+    public void toStringTest() {
         int currentYear = START_YEAR;
 
         String eString, line;
         openFile(easterDatesFile);
 
-        // Loop through lines of file to check if calculated Easter dates match known dates
-        while((line = reader.readLine()) != null) {
-            Easter e = new Easter(currentYear);
-            eString = e.toString() + " " + currentYear;
-            org.junit.Assert.assertEquals(line, eString);
-            currentYear++;
+        // Catch IOException thrown by readLine() or close()
+        try {
+            // Loop through lines of file to check if calculated Easter dates match known dates
+            while((line = reader.readLine()) != null) {
+                Easter e = new Easter(currentYear);
+                eString = e.toString() + " " + currentYear;
+                org.junit.Assert.assertEquals(line, eString);
+                currentYear++;
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        reader.close();
     }
 
 }

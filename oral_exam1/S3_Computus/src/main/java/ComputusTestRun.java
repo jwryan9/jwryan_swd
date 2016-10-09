@@ -2,7 +2,9 @@ package main.java;
 import java.util.Scanner;
 
 /**
- * Created by jasonryan on 9/1/16.
+ * Class for running Computus assignment
+ *
+ * @author Jason Ryan
  */
 
 public class ComputusTestRun {
@@ -10,20 +12,24 @@ public class ComputusTestRun {
         int year = 0, selection = 0;
         Scanner kb = new Scanner(System.in);
 
+        // Implementation of menu system for user interaction
         while (selection != 3) {
-
             System.out.println("\n1. Enter year for computation.\n2. Display counts of dates in cycle.\n3. Exit program.\nSelection:");
+
+            // Try catch block for invalid user input in menu
             try {
                 selection = kb.nextInt();
 
                 switch (selection) {
                     case 1:
                         System.out.println("\nEnter year for calculation");
+
+                        // Try catch block for invalid user input of year
                         try {
                             year = kb.nextInt();
+                            System.out.println(year);
                         } catch(Exception ex) {
                             System.out.println("Invalid Input.");
-                            year = 0;
                             kb.nextLine();
                             break;
                         }

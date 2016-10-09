@@ -4,12 +4,18 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Created by jasonryan on 9/1/16.
+ * Class contains static methods related to the generation and display of Computus cycle counts
+ *
+ * @author Jason Ryan
  */
 
 public class ComputusCycle {
 
-    // Mothod to generate TreeMap containing all possible Easter dates and the number of occurences in each cycle
+    /**
+     * Method to generate TreeMap containing all possible Easter dates and the number of occurrences in each Computs cycle
+     *
+     * @return TreeMap<Easter, Integer> maintains count of all dates in computus cycle
+     */
     private static TreeMap<Easter, Integer> generateCycleMap() {
         // Create map of easter dates and count of repeated dates
         TreeMap<Easter, Integer> easterTreeMap = new TreeMap<>();
@@ -27,7 +33,9 @@ public class ComputusCycle {
         return easterTreeMap;
     }
 
-    // Method to output occurrences of Easter on each date in the cycle
+    /**
+     * Method to output occurances of Easter on each date in Computus cycle
+     */
     public static void displayCycleCounts() {
         TreeMap<Easter, Integer> easterTreeMap = generateCycleMap();
 
