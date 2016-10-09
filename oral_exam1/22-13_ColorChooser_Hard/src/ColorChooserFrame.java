@@ -2,9 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by jasonryan on 10/4/16.
+ * Frame to hold MyColorChooser panel
+ *
+ * @author JAson Ryan
  */
 public class ColorChooserFrame extends JFrame {
+
+    /**
+     * Constructor, initializes frame and adds MyColorChooser panel
+     */
     public ColorChooserFrame() {
         super("22-13_ColorChooser");
 

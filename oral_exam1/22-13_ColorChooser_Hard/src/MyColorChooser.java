@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by jasonryan on 10/4/16.
+ * Panel to implement ColorChooser functionality and display it to the user
+ *
+ * @author Jason Ryan
  */
 public class MyColorChooser extends JPanel{
 
@@ -39,11 +41,14 @@ public class MyColorChooser extends JPanel{
     private int greenVal;
     private int blueVal;
 
+    /**
+     * Constructor, instantiates all objects needed for panel and adds them
+     */
     public MyColorChooser() {
         super();
         setBorder(new EmptyBorder(10, 10, 10, 10));
         GridLayout layout = new GridLayout(4, 3);
-         layout.setVgap(20);
+        layout.setVgap(20);
         layout.setHgap(10);
         setLayout(layout);
 
@@ -121,9 +126,16 @@ public class MyColorChooser extends JPanel{
         add(resetButton);
     }
 
-    // Inner class for slider event handling
+    /**
+     * Inner class for JSlider event handling
+     */
     private class SliderChangeHandler implements ChangeListener {
 
+        /**
+         * Adjusts color values in MyColorChooser and RectanglePanel upon JSlider state change
+         *
+         * @param e ChangeEvent
+         */
         @Override
         public void stateChanged(ChangeEvent e) {
             setRed(redSlider.getValue());
@@ -137,12 +149,21 @@ public class MyColorChooser extends JPanel{
     }
 
     // Inner class for text field event handling
+
+    /**
+     * Inner class for JTextField event handling
+     */
     private class FieldActionHandler implements ActionListener {
 
+        /**
+         * Adjusts color values in MyColorChooser and RectanglePanel upon JTextField update
+         *
+         * @param e ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            // When user enters invalid input keep
+            // When user enters invalid input, maintain state
             try {
                 setRed(Integer.parseInt(redField.getText()));
             } catch (Exception ex) {
@@ -166,6 +187,12 @@ public class MyColorChooser extends JPanel{
         }
     }
 
+    /**
+     * Sets redVal, redField, and redSlider to value passed
+     *
+     * @param red integer of new red value
+     * @throws IllegalArgumentException thrown when an invalid value is passed
+     */
     private void setRed(int red) throws IllegalArgumentException {
         if(red < RGB_MIN || red > RGB_MAX)
             throw new IllegalArgumentException();
@@ -176,6 +203,12 @@ public class MyColorChooser extends JPanel{
         }
     }
 
+    /**
+     * Sets greenVal, greenField, and greenSlider to value passed
+     *
+     * @param green integer of new green value
+     * @throws IllegalArgumentException thrown when an invalid value is passed
+     */
     private void setGreen(int green) throws IllegalArgumentException {
         if(green < RGB_MIN || green > RGB_MAX)
             throw new IllegalArgumentException();
@@ -186,6 +219,12 @@ public class MyColorChooser extends JPanel{
         }
     }
 
+    /**
+     * Sets blueVal, blueField, and blueSlider to value passed
+     *
+     * @param blue integer of new blue value
+     * @throws IllegalArgumentException thrown when an invalid value is passed
+     */
     private void setBlue(int blue) throws IllegalArgumentException {
         if(blue < RGB_MIN || blue > RGB_MAX)
             throw new IllegalArgumentException();
