@@ -26,6 +26,9 @@ public class CalculatorPanel extends JPanel {
     private final JButton equal;
     private final JButton decimal;
 
+    /**
+     * Constructor
+     */
     public CalculatorPanel() {
         super();
         GridLayout layout = new GridLayout(4, 4);
@@ -53,30 +56,21 @@ public class CalculatorPanel extends JPanel {
         decimal = new JButton(".");
 
         // Add buttons to panel
-
         add(seven);
         add(eight);
         add(nine);
         add(divide);
-
         add(four);
         add(five);
         add(six);
         add(multiply);
-
         add(one);
         add(two);
         add(three);
         add(minus);
-
         add(zero);
         add(decimal);
         add(equal);
         add(plus);
-
-
-
-
-
     }
 }
