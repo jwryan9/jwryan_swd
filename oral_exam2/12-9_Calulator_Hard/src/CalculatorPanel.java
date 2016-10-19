@@ -26,14 +26,17 @@ public class CalculatorPanel extends JPanel {
     private final JButton equal;
     private final JButton decimal;
 
+    private final JTextField calculatorText;
+
     /**
      * Constructor
      */
     public CalculatorPanel() {
         super();
-        GridLayout layout = new GridLayout(4, 4);
-        layout.setHgap(5);
-        layout.setVgap(5);
+
+        GridBagLayout layout = new GridBagLayout();
+        GridBagConstraints c = new GridBagConstraints();
+
         setLayout(layout);
 
         // Instantiate JButtons
@@ -55,22 +58,97 @@ public class CalculatorPanel extends JPanel {
         equal = new JButton("=");
         decimal = new JButton(".");
 
+        calculatorText = new JTextField("0");
+
+        // Add text field
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.weightx = 0.5;
+        c.gridwidth = 4;
+        add(calculatorText, c);
+
+        c.gridwidth = 1;
+
         // Add buttons to panel
-        add(seven);
-        add(eight);
-        add(nine);
-        add(divide);
-        add(four);
-        add(five);
-        add(six);
-        add(multiply);
-        add(one);
-        add(two);
-        add(three);
-        add(minus);
-        add(zero);
-        add(decimal);
-        add(equal);
-        add(plus);
+        c.gridx = 0;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        add(seven, c);
+
+        c.gridx = 1;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        add(eight, c);
+
+        c.gridx = 2;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        add(nine, c);
+
+        c.gridx = 3;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        add(divide, c);
+
+        c.gridx = 0;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        add(four, c);
+
+        c.gridx = 1;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        add(five, c);
+
+        c.gridx = 2;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        add(six, c);
+
+        c.gridx = 3;
+        c.gridy = 2;
+        c.weightx = 0.5;
+        add(multiply, c);
+
+        c.gridx = 0;
+        c.gridy = 3;
+        c.weightx = 0.5;
+        add(one, c);
+
+        c.gridx = 1;
+        c.gridy = 3;
+        c.weightx = 0.5;
+        add(two, c);
+
+        c.gridx = 2;
+        c.gridy = 3;
+        c.weightx = 0.5;
+        add(three, c);
+
+        c.gridx = 3;
+        c.gridy = 3;
+        c.weightx = 0.5;
+        add(minus, c);
+
+        c.gridx = 0;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        add(zero, c);
+
+        c.gridx = 1;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        add(decimal, c);
+
+        c.gridx = 2;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        add(equal, c);
+
+        c.gridx = 3;
+        c.gridy = 4;
+        c.weightx = 0.5;
+        add(plus, c);
     }
 }

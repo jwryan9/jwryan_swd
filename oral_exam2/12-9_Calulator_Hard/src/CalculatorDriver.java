@@ -9,7 +9,7 @@ public class CalculatorDriver {
     public static void main(String[] args) {
         CalculatorFrame calculatorFrame = new CalculatorFrame();
         calculatorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        calculatorFrame.setSize(500,500);
+        calculatorFrame.setSize(350,200);
         calculatorFrame.setVisible(true);
     }
 }
