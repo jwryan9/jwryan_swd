@@ -148,8 +148,6 @@ public class MyColorChooser extends JPanel{
         }
     }
 
-    // Inner class for text field event handling
-
     /**
      * Inner class for JTextField event handling
      */
