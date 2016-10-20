@@ -1,11 +1,12 @@
 /**
- * Class for implementing calculator logic
+ * Implements calculator logic
  *
  * @author Jason Ryan
  */
 public class CalculatorLogic {
 
     /**
+     * Performs basic mathematical calculations
      *
      * @param num1 first number used in calculation
      * @param num2 second number used in calculation
@@ -26,9 +27,5 @@ public class CalculatorLogic {
         }
 
         return result;
-    }
-
-    public static boolean validate(double num) {
-        return true;
     }
 }

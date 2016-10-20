@@ -1,13 +1,10 @@
-import javafx.beans.binding.DoubleBinding;
-import javafx.beans.binding.When;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Class creates calculator GUI
+ * Creates and implements calculator GUI
  *
  * @author Jason Ryan
  */
@@ -41,7 +38,7 @@ public class CalculatorPanel extends JPanel {
     private boolean enteringNum = false;
 
     /**
-     * Constructor
+     * Creates a calculator panel with display text field and buttons for 0-9 and basic mathematical functions
      */
     public CalculatorPanel() {
         super();
@@ -197,10 +194,15 @@ public class CalculatorPanel extends JPanel {
     }
 
     /**
-     * Handler for number and decimal button presses
+     * Implementation of ActionListener for number and decimal button presses
      */
     private class NumButtonHandler implements ActionListener {
 
+        /**
+         * Invoked when action is performed
+         *
+         * @param e ActionEvent of button press
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             if(enteringNum) {
@@ -213,11 +215,12 @@ public class CalculatorPanel extends JPanel {
     }
 
     /**
-     * Handler for operation button presses
+     * Implementation of ActionListener for operation button presses
      */
     private class OpButtonHandler implements ActionListener {
 
         /**
+         * Invoked when action is performed
          *
          * @param e ActionEvent of button press
          */
