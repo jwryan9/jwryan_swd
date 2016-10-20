@@ -27,4 +27,8 @@ public class CalculatorLogic {
 
         return result;
     }
+
+    public static boolean validate(double num) {
+        return true;
+    }
 }

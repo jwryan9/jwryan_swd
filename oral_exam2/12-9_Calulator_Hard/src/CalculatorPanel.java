@@ -1,5 +1,10 @@
+import javafx.beans.binding.DoubleBinding;
+import javafx.beans.binding.When;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Class creates calculator GUI
@@ -27,6 +32,13 @@ public class CalculatorPanel extends JPanel {
     private final JButton decimal;
 
     private final JTextField calculatorText;
+
+    private double num1;
+    private double num2;
+
+    private char operator = '\u0000';
+
+    private boolean enteringNum = false;
 
     /**
      * Constructor
@@ -58,7 +70,39 @@ public class CalculatorPanel extends JPanel {
         equal = new JButton("=");
         decimal = new JButton(".");
 
-        calculatorText = new JTextField("0");
+        calculatorText = new JTextField();
+        calculatorText.setEditable(false);
+
+        // Add handlers
+        zero.addActionListener(new NumButtonHandler());
+        one.addActionListener(new NumButtonHandler());
+        two.addActionListener(new NumButtonHandler());
+        three.addActionListener(new NumButtonHandler());
+        four.addActionListener(new NumButtonHandler());
+        five.addActionListener(new NumButtonHandler());
+        six.addActionListener(new NumButtonHandler());
+        seven.addActionListener(new NumButtonHandler());
+        eight.addActionListener(new NumButtonHandler());
+        nine.addActionListener(new NumButtonHandler());
+        decimal.addActionListener(new NumButtonHandler());
+
+        plus.addActionListener(new OpButtonHandler());
+        minus.addActionListener(new OpButtonHandler());
+        multiply.addActionListener(new OpButtonHandler());
+        divide.addActionListener(new OpButtonHandler());
+
+        equal.addActionListener(e -> {
+            try {
+                num2 = Double.parseDouble(calculatorText.getText());
+            } catch (NumberFormatException ex) {
+                calculatorText.setText("Invalid Number");
+            }
+
+            calculatorText.setText(String.valueOf(CalculatorLogic.calculate(num1, num2, operator)));
+
+            operator = '\u0000';
+            enteringNum = false;
+        });
 
         // Add text field
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -151,4 +195,55 @@ public class CalculatorPanel extends JPanel {
         c.weightx = 0.5;
         add(plus, c);
     }
+
+    /**
+     * Handler for number and decimal button presses
+     */
+    private class NumButtonHandler implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(enteringNum) {
+                calculatorText.setText(calculatorText.getText() + e.getActionCommand());
+            } else {
+                calculatorText.setText("" + e.getActionCommand());
+                enteringNum = true;
+            }
+        }
+    }
+
+    /**
+     * Handler for operation button presses
+     */
+    private class OpButtonHandler implements ActionListener {
+
+        /**
+         *
+         * @param e ActionEvent of button press
+         */
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Perform calculation for operation already input
+            if(operator != '\u0000') {
+                try {
+                    num2 = Double.parseDouble(calculatorText.getText());
+                    num1 = CalculatorLogic.calculate(num1, num2, operator);
+                    calculatorText.setText(String.valueOf(num1));
+                } catch (NumberFormatException ex) {
+                    calculatorText.setText("Invalid Number");
+                }
+            } else {
+                try {
+                    num1 = Double.parseDouble(calculatorText.getText());
+                } catch (NumberFormatException ex) {
+                    calculatorText.setText("Invalid Number");
+                }
+            }
+            enteringNum = false;
+
+            operator = e.getActionCommand().charAt(0);
+            System.out.println(operator);
+        }
+    }
+
 }
