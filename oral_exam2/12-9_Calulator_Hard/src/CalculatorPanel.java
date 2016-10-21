@@ -68,7 +68,7 @@ public class CalculatorPanel extends JPanel {
         equal = new JButton("=");
         decimal = new JButton(".");
 
-        calculatorText = new JTextField();
+        calculatorText = new JTextField("0");
         calculatorText.setEditable(false);
 
         // Add handlers
@@ -192,7 +192,18 @@ public class CalculatorPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(enteringNum) {
-                calculatorText.setText(calculatorText.getText() + e.getActionCommand());
+                String calcText = calculatorText.getText();
+
+                // Do not allow multiple decimal point to be entered
+                if(e.getSource() == decimal) {
+                    if(calcText.contains(".")) {
+                        calculatorText.setText(calcText);
+                    } else {
+                        calculatorText.setText(calcText + e.getActionCommand());
+                    }
+                } else {
+                    calculatorText.setText(calcText + e.getActionCommand());
+                }
             } else {
                 calculatorText.setText("" + e.getActionCommand());
                 enteringNum = true;
