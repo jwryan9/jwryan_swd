@@ -34,6 +34,7 @@ public class CalculatorPanel extends JPanel {
     private double num2;
 
     private char operator = '\u0000';
+    private char prevOperator = '\u0000';
 
     private boolean enteringNum = false;
 
@@ -89,23 +90,36 @@ public class CalculatorPanel extends JPanel {
         divide.addActionListener(new OpButtonHandler());
 
         equal.addActionListener(e -> {
-            try {
-                num2 = Double.parseDouble(calculatorText.getText());
-            } catch (NumberFormatException ex) {
-                calculatorText.setText("Invalid Number");
-            }
 
-            calculatorText.setText(String.valueOf(CalculatorLogic.calculate(num1, num2, operator)));
+            // On equal button press if operator is selected compute with that operation otherwise repeat previous operation
+            if(operator != '\u0000') {
+                try {
+                    num2 = Double.parseDouble(calculatorText.getText());
+                } catch (NumberFormatException ex) {
+                    calculatorText.setText("Invalid Number");
+                }
+                calculatorText.setText(String.valueOf(CalculatorLogic.calculate(num1, num2, operator)));
+                prevOperator = operator;
+                operator = '\u0000';
+            } else {
+                try {
+                    num1 = Double.parseDouble(calculatorText.getText());
+                } catch (NumberFormatException ex) {
+                    calculatorText.setText("Invalid Number");
+                }
+                calculatorText.setText(String.valueOf(CalculatorLogic.calculate(num1, num2, prevOperator)));
+            }
 
             operator = '\u0000';
             enteringNum = false;
         });
 
         // Add text field
-        c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.BOTH;
         c.gridx = 0;
         c.gridy = 0;
         c.weightx = 0.5;
+        c.weighty = 0.5;
         c.gridwidth = 4;
         add(calculatorText, c);
 
@@ -114,82 +128,54 @@ public class CalculatorPanel extends JPanel {
         // Add buttons to panel
         c.gridx = 0;
         c.gridy = 1;
-        c.weightx = 0.5;
         add(seven, c);
 
         c.gridx = 1;
-        c.gridy = 1;
-        c.weightx = 0.5;
         add(eight, c);
 
         c.gridx = 2;
-        c.gridy = 1;
-        c.weightx = 0.5;
         add(nine, c);
 
         c.gridx = 3;
-        c.gridy = 1;
-        c.weightx = 0.5;
         add(divide, c);
 
         c.gridx = 0;
         c.gridy = 2;
-        c.weightx = 0.5;
         add(four, c);
 
         c.gridx = 1;
-        c.gridy = 2;
-        c.weightx = 0.5;
         add(five, c);
 
         c.gridx = 2;
-        c.gridy = 2;
-        c.weightx = 0.5;
         add(six, c);
 
         c.gridx = 3;
-        c.gridy = 2;
-        c.weightx = 0.5;
         add(multiply, c);
 
         c.gridx = 0;
         c.gridy = 3;
-        c.weightx = 0.5;
         add(one, c);
 
         c.gridx = 1;
-        c.gridy = 3;
-        c.weightx = 0.5;
         add(two, c);
 
         c.gridx = 2;
-        c.gridy = 3;
-        c.weightx = 0.5;
         add(three, c);
 
         c.gridx = 3;
-        c.gridy = 3;
-        c.weightx = 0.5;
         add(minus, c);
 
         c.gridx = 0;
         c.gridy = 4;
-        c.weightx = 0.5;
         add(zero, c);
 
         c.gridx = 1;
-        c.gridy = 4;
-        c.weightx = 0.5;
         add(decimal, c);
 
         c.gridx = 2;
-        c.gridy = 4;
-        c.weightx = 0.5;
         add(equal, c);
 
         c.gridx = 3;
-        c.gridy = 4;
-        c.weightx = 0.5;
         add(plus, c);
     }
 
@@ -242,10 +228,9 @@ public class CalculatorPanel extends JPanel {
                     calculatorText.setText("Invalid Number");
                 }
             }
-            enteringNum = false;
 
+            enteringNum = false;
             operator = e.getActionCommand().charAt(0);
-            System.out.println(operator);
         }
     }
 

@@ -14,8 +14,8 @@ public class CalculatorDriver {
      */
     public static void main(String[] args) {
         CalculatorFrame calculatorFrame = new CalculatorFrame();
-        calculatorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        calculatorFrame.setSize(350,180);
+        calculatorFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        calculatorFrame.setSize(350,350);
         calculatorFrame.setVisible(true);
     }
 }
