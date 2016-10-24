@@ -30,6 +30,7 @@ public class PrimeCalculator extends SwingWorker<Integer, Integer> {
     }
 
     // finds all primes up to max using the Sieve of Eratosthenes
+    @Override
     public Integer doInBackground() {
         int count = 0; // the number of primes found
 
@@ -63,12 +64,14 @@ public class PrimeCalculator extends SwingWorker<Integer, Integer> {
     }
 
     // displays published values in primes list
+    @Override
     protected void process(List<Integer> publishedVals) {
         for (int i = 0; i < publishedVals.size(); i++)
             intermediateJTextArea.append(publishedVals.get(i) + "\n");
     }
 
     // code to execute when doInBackground completes
+    @Override
     protected void done() {
         getPrimesJButton.setEnabled(true); // enable Get Primes button
         cancelJButton.setEnabled(false); // disable Cancel button
