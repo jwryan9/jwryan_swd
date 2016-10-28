@@ -1,13 +1,15 @@
-import java.util.Enumeration;
 import java.util.Map;
 
 /**
+ * Abstract class representing all animal types
  *
  * @author Jason Ryan
  */
 public abstract class Animal {
     private final String name;
     private final String location;
+
+    enum FoodTypes {BASS, HAY, PEANUTS, SHRIMP, ZEBRA}
 
     public Animal(String name, String location) {
         this.name = name;
@@ -19,8 +21,8 @@ public abstract class Animal {
     }
 
     public abstract String getAnimalType();
-    public abstract Enumeration<String> getFoodTypes();
-    public abstract void addFeeding(String type, int amount);
-    public abstract Map<String, Integer> getFeedingTotals();
+    public abstract FoodTypes getFoodTypes();
+    public abstract void addFeeding(FoodTypes type, int amount);
+    public abstract Map getFeedingTotals();
 
 }

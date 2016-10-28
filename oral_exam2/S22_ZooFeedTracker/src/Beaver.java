@@ -1,10 +1,11 @@
-import java.util.Enumeration;
 import java.util.Map;
 
 /**
  * @author Jason Ryan
  */
 public class Beaver extends Animal {
+
+    //private enum FoodTypes {BASS, HAY}
 
     public Beaver(String name, String location) {
         super(name, location);
@@ -16,17 +17,17 @@ public class Beaver extends Animal {
     }
 
     @Override
-    public Enumeration<String> getFoodTypes() {
+    public FoodTypes getFoodTypes() {
         return null;
     }
 
     @Override
-    public void addFeeding(String type, int amount) {
+    public void addFeeding(FoodTypes type, int amount) {
 
     }
 
     @Override
-    public Map<String, Integer> getFeedingTotals() {
+    public Map<FoodTypes, Integer> getFeedingTotals() {
         return null;
     }
 }

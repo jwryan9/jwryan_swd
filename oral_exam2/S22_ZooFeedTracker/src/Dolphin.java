@@ -1,4 +1,3 @@
-import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -16,17 +15,17 @@ public class Dolphin extends Animal {
     }
 
     @Override
-    public Enumeration<String> getFoodTypes() {
+    public FoodTypes getFoodTypes() {
         return null;
     }
 
     @Override
-    public void addFeeding(String type, int amount) {
+    public void addFeeding(FoodTypes type, int amount) {
 
     }
 
     @Override
-    public Map<String, Integer> getFeedingTotals() {
+    public Map<Beaver.FoodTypes, Integer> getFeedingTotals() {
         return null;
     }
 }
