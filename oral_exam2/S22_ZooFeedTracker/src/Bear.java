@@ -4,18 +4,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
  * @author Jason Ryan
  */
-public class Lion extends Animal {
+public class Bear extends Animal {
 
-    private String animalType = "Lion";
+    private String animalType = "bear";
     private HashMap<String, Integer> feedings;
 
-    public Lion(String name, String location) {
+    public Bear(String name, String location) {
         super(name, location);
         feedings = new HashMap<>();
-        feedings.put("ZEBRA", 0);
+        feedings.put("SALMON", 0);
+        feedings.put("TROUT", 0);
+        feedings.put("BERRIES", 0);
     }
 
     @Override
@@ -39,8 +40,7 @@ public class Lion extends Animal {
     }
 
     @Override
-    public Map<String, Integer> getFeedingTotals() {
+    public Map getFeedingTotals() {
         return feedings;
     }
-
 }
