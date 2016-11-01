@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,20 +10,29 @@ public abstract class Animal {
     private final String name;
     private final String location;
 
-    enum FoodTypes {BASS, HAY, PEANUTS, SHRIMP, ZEBRA}
-
     public Animal(String name, String location) {
         this.name = name;
         this.location = location;
     }
 
-    public String getAnimalName() {
+    public String getName() {
         return name;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    @Override
+    public String toString() {
+        return("Name: " + getName() + "\nLocation: " + getLocation() +
+                "\nType: " + getAnimalType() + "\nFood Types: " + getFoodTypes() +
+                "\nFeedings (lbs): " + getFeedingTotals());
+    }
+
     public abstract String getAnimalType();
-    public abstract FoodTypes getFoodTypes();
-    public abstract void addFeeding(FoodTypes type, int amount);
+    public abstract List<String> getFoodTypes();
+    public abstract void addFeeding(String type, int amount);
     public abstract Map getFeedingTotals();
 
 }

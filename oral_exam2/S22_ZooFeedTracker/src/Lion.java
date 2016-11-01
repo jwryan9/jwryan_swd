@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -6,14 +9,12 @@ import java.util.Map;
  */
 public class Lion extends Animal {
 
-    //private enum FoodTypes {ZEBRA}
-
-    Map<FoodTypes, Integer> feedings;
     private String animalType = "Lion";
-    private FoodTypes foodTypes;
+    private HashMap<String, Integer> feedings;
 
     public Lion(String name, String location) {
         super(name, location);
+        feedings.put("ZEBRA", 0);
     }
 
     @Override
@@ -22,22 +23,23 @@ public class Lion extends Animal {
     }
 
     @Override
-    public Animal.FoodTypes getFoodTypes() {
-        return null;
+    public List<String> getFoodTypes() {
+        return new ArrayList<>(feedings.keySet());
     }
 
     @Override
-    public void addFeeding(FoodTypes type, int amount) {
-        if(feedings.containsKey(type)) {
-            int oldAmount = feedings.get(type);
-            feedings.put(type, oldAmount + amount);
+    public void addFeeding(String type, int amount) {
+        String foodType = type.toUpperCase();
+        if(feedings.containsKey(foodType)) {
+            feedings.put(foodType, feedings.get(foodType) + amount);
         } else {
-            feedings.put(type, amount);
+            System.out.println("Invalid food type.");
         }
     }
 
     @Override
-    public Map<FoodTypes, Integer> getFeedingTotals() {
+    public Map<String, Integer> getFeedingTotals() {
         return feedings;
     }
+
 }

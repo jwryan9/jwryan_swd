@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -5,27 +8,39 @@ import java.util.Map;
  */
 public class Dolphin extends Animal {
 
+    private String animalType = "dolphin";
+    private HashMap<String, Integer> feedings;
+
     public Dolphin(String name, String location) {
         super(name, location);
+        feedings = new HashMap<>();
+        feedings.put("BASS", 0);
+        feedings.put("SHRIMP", 0);
     }
 
     @Override
     public String getAnimalType() {
-        return null;
+        return animalType;
     }
 
     @Override
-    public FoodTypes getFoodTypes() {
-        return null;
+    public List<String> getFoodTypes() {
+        return new ArrayList<>(feedings.keySet());
     }
 
     @Override
-    public void addFeeding(FoodTypes type, int amount) {
-
+    public void addFeeding(String type, int amount) {
+        String foodType = type.toUpperCase();
+        if(feedings.containsKey(foodType)) {
+            feedings.put(foodType, feedings.get(foodType) + amount);
+        } else {
+            System.out.println("Invalid food type.");
+        }
     }
 
     @Override
-    public Map<Beaver.FoodTypes, Integer> getFeedingTotals() {
-        return null;
+    public Map<String, Integer> getFeedingTotals() {
+        return feedings;
     }
+
 }
