@@ -43,4 +43,10 @@ public class Beaver extends Animal {
         return feedings;
     }
 
+    @Override
+    public void resetFeedingTotals() {
+        feedings.put("HAY", 0);
+        feedings.put("BASS", 0);
+    }
+
 }

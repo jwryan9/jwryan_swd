@@ -41,4 +41,9 @@ public class Snake extends Animal {
     public Map<String, Integer> getFeedingTotals() {
         return feedings;
     }
+
+    @Override
+    public void resetFeedingTotals() {
+        feedings.put("MICE", 0);
+    }
 }

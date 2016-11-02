@@ -43,4 +43,10 @@ public class Dolphin extends Animal {
         return feedings;
     }
 
+    @Override
+    public void resetFeedingTotals() {
+        feedings.put("BASS", 0);
+        feedings.put("SHRIMP", 0);
+    }
+
 }

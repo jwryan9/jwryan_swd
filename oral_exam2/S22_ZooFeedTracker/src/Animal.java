@@ -34,5 +34,6 @@ public abstract class Animal {
     public abstract List<String> getFoodTypes();
     public abstract void addFeeding(String type, int amount);
     public abstract Map getFeedingTotals();
+    public abstract void resetFeedingTotals();
 
 }

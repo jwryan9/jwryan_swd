@@ -43,4 +43,12 @@ public class Bear extends Animal {
     public Map getFeedingTotals() {
         return feedings;
     }
+
+    @Override
+    public void resetFeedingTotals() {
+        feedings.put("SALMON", 0);
+        feedings.put("TROUT", 0);
+        feedings.put("BERRIES", 0);
+
+    }
 }

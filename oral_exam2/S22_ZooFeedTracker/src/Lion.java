@@ -43,4 +43,9 @@ public class Lion extends Animal {
         return feedings;
     }
 
+    @Override
+    public void resetFeedingTotals() {
+        feedings.put("ZEBRA", 0);
+    }
+
 }

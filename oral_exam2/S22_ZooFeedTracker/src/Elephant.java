@@ -43,4 +43,10 @@ public class Elephant extends Animal {
         return feedings;
     }
 
+    @Override
+    public void resetFeedingTotals() {
+        feedings.put("HAY", 0);
+        feedings.put("PEANUTS", 0);
+    }
+
 }
