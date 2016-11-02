@@ -34,8 +34,6 @@ public class Bear extends Animal {
         String foodType = type.toUpperCase();
         if(feedings.containsKey(foodType)) {
             feedings.put(foodType, feedings.get(foodType) + amount);
-        } else {
-            System.out.println("Invalid food type.");
         }
     }
 

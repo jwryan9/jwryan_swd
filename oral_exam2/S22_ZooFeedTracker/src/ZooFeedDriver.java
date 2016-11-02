@@ -32,11 +32,11 @@ public class ZooFeedDriver {
         kb.close();
     }
 
-    private static void mainMenu(Scanner kb, ArrayList zooAnimals) {
+    private static void mainMenu(Scanner kb, ArrayList<Animal> zooAnimals) {
         int choice;
 
         do {
-            System.out.println("Welcome to ZooFeeder 3000");
+            System.out.println("\nMain menu");
             System.out.println("1) Display animals.");
             System.out.println("2) Add animal.");
             System.out.println("3) Add feeding.");
@@ -46,21 +46,11 @@ public class ZooFeedDriver {
             System.out.println("7) Exit.");
             System.out.println("Enter choice");
 
-            try {
-                choice = kb.nextInt();
-
-                // Clear line
-                kb.nextLine();
-            } catch (InputMismatchException ex) {
-                // Clear line
-                kb.nextLine();
-
-                choice = -1;
-            }
+            choice = getSelection(kb);
 
             switch (choice) {
                 case 1:
-                    for (Object animal : zooAnimals) {
+                    for (Animal animal : zooAnimals) {
                         System.out.println(animal + "\n");
                     }
                     break;
@@ -68,23 +58,27 @@ public class ZooFeedDriver {
                     addAnimal(kb, zooAnimals);
                     break;
                 case 3:
+                    addFeeding(kb, zooAnimals);
                     break;
                 case 4:
                     break;
                 case 5:
                     break;
                 case 6:
+                    for (Animal animal : zooAnimals) {
+                        animal.resetFeedingTotals();
+                    }
                     break;
                 case 7:
-                    System.out.println("Exiting...");
+                    System.out.println("\nExiting...");
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("\nInvalid choice");
             }
         } while(choice != 7);
     }
 
-    private static void addAnimal(Scanner kb, ArrayList zooAnimals) {
+    private static void addAnimal(Scanner kb, ArrayList<Animal> zooAnimals) {
         int choice;
         String location = "", name = "";
 
@@ -135,5 +129,70 @@ public class ZooFeedDriver {
                 System.out.println("Invalid choice.");
                 break;
         }
+    }
+
+    private static void addFeeding(Scanner kb, ArrayList<Animal> zooAnimals) {
+        int i = 0, choice, amount = 0;
+        String foodType;
+
+        System.out.println("\nSelect an animal.");
+        for(Animal animal : zooAnimals) {
+            System.out.println(i + ") " + animal.getName());
+            i++;
+        }
+
+        choice = getSelection(kb);
+
+        // Validate animal selection
+        if(choice >= 0 && choice <= i) {
+            Animal animalToFeed = zooAnimals.get(choice);
+            System.out.println(animalToFeed.getAnimalType() + "s eat: " + animalToFeed.getFoodTypes());
+
+            System.out.println("Enter food type:");
+            foodType = kb.nextLine();
+            System.out.println("Enter amount (lbs):");
+            try {
+                amount = kb.nextInt();
+
+                // Clear line
+                kb.nextLine();
+
+                // Validate foodType for feeding
+                if(animalToFeed.getFoodTypes().contains(foodType.toUpperCase())) {
+                    animalToFeed.addFeeding(foodType, amount);
+                } else {
+                    System.out.println("Invalid food type.");
+                    amount = 0;
+                }
+            } catch (InputMismatchException ex) {
+                // Clear line
+                kb.nextLine();
+
+                amount = 0;
+
+                System.out.println("Invalid amount");
+            } finally {
+                System.out.println(animalToFeed.getName() + " has been fed " + amount + " lbs of " + foodType + ".\n");
+            }
+
+        }
+    }
+
+    private static int getSelection(Scanner kb) {
+        int choice;
+
+        try {
+            choice = kb.nextInt();
+
+            // Clear line
+            kb.nextLine();
+        } catch (InputMismatchException ex) {
+            // Clear line
+            kb.nextLine();
+
+            choice = -1;
+        }
+
+        return choice;
     }
 }
