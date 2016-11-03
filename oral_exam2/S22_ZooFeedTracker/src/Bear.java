@@ -38,7 +38,7 @@ public class Bear extends Animal {
     }
 
     @Override
-    public Map getFeedingTotals() {
+    public HashMap<String, Integer> getFeedingTotals() {
         return feedings;
     }
 

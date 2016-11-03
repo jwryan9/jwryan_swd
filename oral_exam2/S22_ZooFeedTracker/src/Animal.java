@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public abstract class Animal {
     public abstract String getAnimalType();
     public abstract List<String> getFoodTypes();
     public abstract void addFeeding(String type, int amount);
-    public abstract Map getFeedingTotals();
+    public abstract HashMap<String, Integer> getFeedingTotals();
     public abstract void resetFeedingTotals();
 
 }

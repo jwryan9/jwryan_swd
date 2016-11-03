@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Driver program to demonstrate the functionality of ZooFeedTracker
@@ -10,21 +7,10 @@ import java.util.Scanner;
  */
 public class ZooFeedDriver {
 
+    private static GroceryList compositeGroceryList;
+
     public static void main(String[] args) {
-
-        // Instantiate animals
-        Animal beaver1 = new Beaver("Senor Bucktooth", "Beaver Pen");
-        Animal lion1 = new Lion("Leo", "Lion Habitat");
-        Animal elephant1 = new Elephant("Sir Trunksalot", "Watering Hole");
-        Animal dolphin1 = new Dolphin("Finny", "Pool");
-
         ArrayList<Animal> zooAnimals = new ArrayList<>();
-
-        zooAnimals.add(beaver1);
-        zooAnimals.add(lion1);
-        zooAnimals.add(elephant1);
-        zooAnimals.add(dolphin1);
-
         Scanner kb = new Scanner(System.in);
 
         mainMenu(kb, zooAnimals);
@@ -61,6 +47,9 @@ public class ZooFeedDriver {
                     addFeeding(kb, zooAnimals);
                     break;
                 case 4:
+                    compositeGroceryList = new GroceryList();
+                    compositeGroceryList.generateList(zooAnimals);
+                    System.out.println(compositeGroceryList.getGroceryList());
                     break;
                 case 5:
                     break;

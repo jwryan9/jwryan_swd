@@ -37,7 +37,7 @@ public class Beaver extends Animal {
     }
 
     @Override
-    public Map<String, Integer> getFeedingTotals() {
+    public HashMap<String, Integer> getFeedingTotals() {
         return feedings;
     }
 
