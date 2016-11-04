@@ -47,6 +47,5 @@ public class Bear extends Animal {
         feedings.put("SALMON", 0);
         feedings.put("TROUT", 0);
         feedings.put("BERRIES", 0);
-
     }
 }
