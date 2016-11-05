@@ -13,11 +13,30 @@ public class ZooFeedDriver {
         ArrayList<Animal> zooAnimals = new ArrayList<>();
         Scanner kb = new Scanner(System.in);
 
+        zooAnimals.add(new Bear("bear1", "bear pen"));
+        zooAnimals.add(new Bear("bear2", "bear pen"));
+        zooAnimals.add(new Beaver("beaver1", "beaver pen"));
+        zooAnimals.add(new Beaver("beaver2", "beaver pen"));
+        zooAnimals.add(new Dolphin("dolphin1", "pool"));
+        zooAnimals.add(new Dolphin("dolphin2", "pool"));
+        zooAnimals.add(new Elephant("elephant1", "elephant pen"));
+        zooAnimals.add(new Elephant("elephant2", "elephant pen"));
+        zooAnimals.add(new Lion("lion1", "lion pen"));
+        zooAnimals.add(new Lion("lion2", "lion pen"));
+        zooAnimals.add(new Snake("snake1", "snake pen"));
+        zooAnimals.add(new Snake("snake2", "snake pen"));
+
         mainMenu(kb, zooAnimals);
 
         kb.close();
     }
 
+    /**
+     * Displays main menu to user for operating zoo feeder system
+     *
+     * @param kb Scanner object used for retrieving user input
+     * @param zooAnimals ArrayList of Animal objects
+     */
     private static void mainMenu(Scanner kb, ArrayList<Animal> zooAnimals) {
         int choice;
 
@@ -69,6 +88,12 @@ public class ZooFeedDriver {
         } while(choice != 7);
     }
 
+    /**
+     * Allows user to add new animal to the zoo
+     *
+     * @param kb Scanner object used for retrieving user input
+     * @param zooAnimals ArrayList of Animal objects
+     */
     private static void addAnimal(Scanner kb, ArrayList<Animal> zooAnimals) {
         int choice;
         String location, name;
@@ -138,6 +163,11 @@ public class ZooFeedDriver {
         }
     }
 
+    /**
+     *
+     * @param kb
+     * @param zooAnimals
+     */
     private static void addFeeding(Scanner kb, ArrayList<Animal> zooAnimals) {
         int i = 0, choice, amount = 0;
         String foodType;
@@ -182,6 +212,8 @@ public class ZooFeedDriver {
                 System.out.println(animalToFeed.getName() + " has been fed " + amount + " lbs of " + foodType + ".\n");
             }
 
+        } else {
+            System.out.println("Invalid choice");
         }
     }
 
@@ -233,6 +265,9 @@ public class ZooFeedDriver {
                 break;
             default:
                 System.out.println("Invalid choice.");
+
+                // Ensure choice is set to -1 on invalid selection
+                choice = -1;
                 break;
         }
 
