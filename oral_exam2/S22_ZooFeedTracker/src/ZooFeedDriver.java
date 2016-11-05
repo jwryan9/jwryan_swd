@@ -163,11 +163,6 @@ public class ZooFeedDriver {
         }
     }
 
-    /**
-     *
-     * @param kb
-     * @param zooAnimals
-     */
     private static void addFeeding(Scanner kb, ArrayList<Animal> zooAnimals) {
         int i = 0, choice, amount = 0;
         String foodType;
