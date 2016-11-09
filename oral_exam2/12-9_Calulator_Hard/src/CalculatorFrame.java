@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * GUI frame that contains calculator panel
  *
  * @author Jason Ryan
  */
