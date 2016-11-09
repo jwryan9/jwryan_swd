@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="40.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SWD IS MY FAVORITE CLASS" textAlignment="CENTER" wrappingWidth="520.58740234375">
+         <font>
+            <Font name="Iowan Old Style Bold" size="29.0" />
+         </font>
+         <fill>
+            <RadialGradient centerX="0.8146067415730337" centerY="0.9182692307692307" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#01d9e4" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <ImageView fitHeight="238.0" fitWidth="391.0" layoutX="105.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bug.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

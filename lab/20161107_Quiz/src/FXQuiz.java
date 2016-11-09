@@ -4,6 +4,9 @@
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.fxml.FXMLLoader;
 
 public class FXQuiz extends Application {
 
@@ -12,7 +15,14 @@ public class FXQuiz extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
 
+        Parent root = FXMLLoader.load(getClass().getResource("MyGui.fxml"));
+
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("My First FX GUI");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
