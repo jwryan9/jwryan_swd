@@ -3,12 +3,18 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * Class makes grocery list for zoo dietitian to follow when shopping for
+ * food based on past animal feedings
+ *
  * @author Jason Ryan
  */
 public class GroceryList {
 
     HashMap<String, Integer> groceryList;
 
+    /**
+     * Constructor for GroceryList object
+     */
     public GroceryList() {
         groceryList = new HashMap<>();
 
@@ -23,6 +29,11 @@ public class GroceryList {
         groceryList.put("ZEBRA", 0);
     }
 
+    /**
+     * Method generates grocery list based on list of zoo animals
+     *
+     * @param zooAnimals list of animals to analyze feedings when generating list
+     */
     public void generateList(ArrayList<Animal> zooAnimals) {
         HashMap<String, Integer> animalFeedings;
         List<String> animalFoodTypes;
@@ -36,6 +47,11 @@ public class GroceryList {
         }
     }
 
+    /**
+     * Method for retrieving the amount of food the zoo dietitian should purchase
+     *
+     * @return HashMap of food types and amount in lbs
+     */
     public HashMap<String, Integer> getGroceryList() {
         return groceryList;
     }

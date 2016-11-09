@@ -9,6 +9,11 @@ public class ZooFeedDriver {
 
     private static GroceryList compositeGroceryList;
 
+    /**
+     * Main method
+     *
+     * @param args main method arguments
+     */
     public static void main(String[] args) {
         ArrayList<Animal> zooAnimals = new ArrayList<>();
         Scanner kb = new Scanner(System.in);
@@ -163,6 +168,12 @@ public class ZooFeedDriver {
         }
     }
 
+    /**
+     * Allows user to feed animal
+     *
+     * @param kb Scanner object used for retrieving user input
+     * @param zooAnimals ArrayList of Animal objects
+     */
     private static void addFeeding(Scanner kb, ArrayList<Animal> zooAnimals) {
         int i = 0, choice, amount = 0;
         String foodType;
@@ -212,6 +223,12 @@ public class ZooFeedDriver {
         }
     }
 
+    /**
+     * Method for generating grocery list of single animal type
+     *
+     * @param kb Scanner object used for retrieving user input
+     * @param zooAnimals ArrayList of Animal objects
+     */
     private static void singleAnimalGroceries(Scanner kb, ArrayList<Animal> zooAnimals) {
         int choice;
         ArrayList<Animal> singleAnimalList;
@@ -272,7 +289,12 @@ public class ZooFeedDriver {
         }
     }
 
-    // Gets user selection from keyboard
+    /**
+     * Method for retrieving user integer input
+     *
+     * @param kb Scanner object used for retrieving user inpu
+     * @return user integer selection
+     */
     private static int getSelection(Scanner kb) {
         int choice;
 
@@ -291,12 +313,18 @@ public class ZooFeedDriver {
         return choice;
     }
 
-    // Generates ArrayList of one animal type
+    /**
+     * Method for generating list of animals of single animal type
+     *
+     * @param zooAnimals ArrayList of Animal objects
+     * @param animalType type of Animal to generate list of
+     * @return ArrayList of single Animal type
+     */
     private static ArrayList<Animal> getSingleAnimal(ArrayList<Animal> zooAnimals, String animalType) {
         ArrayList<Animal> singleAnimalList = new ArrayList<>();
 
         for(Animal animal : zooAnimals) {
-            if(animal.getAnimalType() == animalType) {
+            if(animal.getAnimalType().equals(animalType)) {
                 singleAnimalList.add(animal);
             }
         }
