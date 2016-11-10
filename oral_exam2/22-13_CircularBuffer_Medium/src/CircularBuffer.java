@@ -2,8 +2,11 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-// Fig. 23.18: CircularBuffer.java
-// Synchronizing access to a shared three-element bounded buffer.
+/**
+ * Using locks and conditions to synchronize access to a shared three-element bounded buffer.
+ *
+ * @author Jason Ryan
+ */
 public class CircularBuffer implements Buffer {
 
     // Lock to control synchronization with this buffer
@@ -19,13 +22,18 @@ public class CircularBuffer implements Buffer {
     private int writeIndex = 0; // index of next element to write to
     private int readIndex = 0; // index of next element to read
 
-    // place value into buffer
+    /**
+     * Method for placing value into buffer
+     *
+     * @param value value to be insert in buffer
+     * @throws InterruptedException thrown when thread is occupied and is interrupted
+     */
     public void blockingPut(int value) throws InterruptedException {
 
         accessLock.lock(); // Lock this object
 
         try {
-            // wait until buffer has space avaialble, then write value;
+            // wait until buffer has space available, then write value;
             // while no empty locations, place thread in waiting state
             while (occupiedCells == buffer.length) {
                 System.out.printf("Buffer is full. Producer waits.%n");
@@ -48,7 +56,12 @@ public class CircularBuffer implements Buffer {
         }
     }
 
-    // return value from buffer
+    /**
+     * Method for returning value from buffer
+     *
+     * @return value from buffer
+     * @throws InterruptedException thrown when thread is occupied and is interrupted
+     */
     public int blockingGet() throws InterruptedException {
 
         int readValue = -1; // Initialize value read from buffer
@@ -80,7 +93,11 @@ public class CircularBuffer implements Buffer {
         return readValue;
     }
 
-    // display current operation and buffer state
+    /**
+     * Method to display current operation and buffer state
+     *
+     * @param operation action performed on buffer
+     */
     public void displayState(String operation) {
 
         try {
@@ -95,8 +112,7 @@ public class CircularBuffer implements Buffer {
 
             System.out.printf("%n               ");
 
-            for (int i = 0; i < buffer.length; i++)
-                System.out.print("---- ");
+            for (int aBuffer : buffer) System.out.print("---- ");
 
             System.out.printf("%n               ");
 
@@ -117,19 +133,3 @@ public class CircularBuffer implements Buffer {
         System.out.printf("%n%n");
     }
 } // end class CircularBuffer
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
