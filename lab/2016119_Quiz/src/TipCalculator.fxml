@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TipCalculatorController">
   <columnConstraints>
     <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="90.0" />
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="546.0" minWidth="10.0" prefWidth="510.0" />
@@ -20,26 +20,26 @@
   </rowConstraints>
    <children>
       <Label text="Amount:" />
-      <Label text="TMPVALUE" GridPane.rowIndex="1" />
+      <Label fx:id="tipPercentageLabel" text="TMPVALUE" GridPane.rowIndex="1" />
       <Label text="Tip:" GridPane.rowIndex="2" />
       <Label text="Total:" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="263.0" text="Calculate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Slider max="30.0" prefHeight="16.0" prefWidth="66.0" value="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button mnemonicParsing="false" onAction="#calculateButtonPressed" prefHeight="27.0" prefWidth="263.0" text="Calculate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Slider fx:id="tipPercentageSlider" max="30.0" prefHeight="16.0" prefWidth="66.0" value="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="10.0" right="10.0" />
          </GridPane.margin>
       </Slider>
-      <TextField GridPane.columnIndex="1">
+      <TextField fx:id="amountTextField" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets left="10.0" right="10.0" />
          </GridPane.margin>
       </TextField>
-      <TextField editable="false" prefHeight="27.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField fx:id="tipTextField" editable="false" prefHeight="27.0" prefWidth="221.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="10.0" right="10.0" />
          </GridPane.margin>
       </TextField>
-      <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <TextField fx:id="totalTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" right="10.0" />
          </GridPane.margin>
