@@ -1,10 +1,7 @@
-// Fig. 23.11: Consumer.java
-// Consumer with a run method that loops, reading 10 values from buffer.
-
 import java.security.SecureRandom;
 
 /**
- * Consumer reads values from a shared buffer
+ * Consumer with a run method that loops, reading 10 values from shared buffer.
  *
  * @author Jason Ryan
  */

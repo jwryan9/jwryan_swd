@@ -1,10 +1,7 @@
-// Fig. 23.10: Producer.java
-// Producer with a run method that inserts the values 1 to 10 in buffer.
-
 import java.security.SecureRandom;
 
 /**
- * Producer stores value in a shared buffer
+ * Producer with a run method that inserts the values 1 to 10 in shared buffer
  *
  * @author Jason Ryan
  */
