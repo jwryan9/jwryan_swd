@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class CalculatorModel {
     // Declare instance variables
 
-    public BigDecimal calculate(BigDecimal nomial1, BigDecimal nomial2, boolean[] flags) {
+    public static BigDecimal calculate(BigDecimal nomial1, BigDecimal nomial2, boolean[] flags) {
         BigDecimal calculation = new BigDecimal(0.00);
         if(flags[2]) {
             flags[2] = false;
