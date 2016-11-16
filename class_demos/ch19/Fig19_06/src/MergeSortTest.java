@@ -39,7 +39,7 @@ public class MergeSortTest {
     private static void merge(int[] data, int left, int middle1,
                               int middle2, int right) {
         int leftIndex = left; // index into left subarray
-        int rightIndex = middle2; // index into right subarray
+        int rightIndex = middle1+1; // index into right subarray
         int combinedIndex = left; // index into temporary working array
         int[] combined = new int[data.length]; // working array
 
