@@ -39,7 +39,7 @@ public class MergeSort {
         int[] temp = new int[arr.length];
 
         // Perform merge while both sides contain values
-        while (firstArrIndex <= middle && secondArrIndex <= high) {
+        while ((firstArrIndex <= middle) && (secondArrIndex <= high)) {
             if (arr[firstArrIndex] <= arr[secondArrIndex]) {
                 temp[tempIndex++] = arr[firstArrIndex++];
             } else {
@@ -48,13 +48,13 @@ public class MergeSort {
         }
 
         // Fill array with remaining values
-        if (firstArrIndex == (middle + 1)) {
-            while (secondArrIndex <= high) {
-                temp[tempIndex++] = arr[secondArrIndex++];
+        if (firstArrIndex <= (middle + 1)) {
+            while(firstArrIndex <= middle) {
+                temp[tempIndex++] = arr[firstArrIndex++];
             }
         } else {
-            while (firstArrIndex <= middle) {
-                temp[tempIndex++] = arr[firstArrIndex++];
+            while(secondArrIndex <= high) {
+                temp[tempIndex++] = arr[secondArrIndex++];
             }
         }
 
