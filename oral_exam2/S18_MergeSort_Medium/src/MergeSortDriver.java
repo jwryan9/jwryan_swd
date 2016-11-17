@@ -7,8 +7,13 @@ import java.util.Random;
  * @author Jason Ryan
  */
 public class MergeSortDriver {
-    private static final int ARR_LEN = 6;
+    private static final int ARR_LEN = 100;
 
+    /**
+     * Main method
+     *
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
         int[] arr = new int[ARR_LEN];
         Random random = new Random();
