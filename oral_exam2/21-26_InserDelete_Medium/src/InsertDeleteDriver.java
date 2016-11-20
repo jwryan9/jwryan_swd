@@ -9,14 +9,27 @@ public class InsertDeleteDriver {
 
         System.out.println("List is empty: " + testList.isEmpty());
 
-        testList.insertFront(1);
+        System.out.println("Node deleted: " + testList.deleteFirst());
+
         testList.insertFront(2);
+        testList.print();
+        testList.insertFront(1);
+        testList.print();
+        testList.insert(0,0);
+        testList.print();
         testList.insertEnd(3);
-        testList.insertEnd(4);
+        testList.print();
+        testList.insertEnd(5);
+        testList.print();
+        testList.insert(4, 4);
+        testList.print();
+        testList.insert(6, 6);
+        testList.print();
 
         System.out.println("List is empty: " + testList.isEmpty());
-
         System.out.println("Node deleted: " + testList.deleteFirst());
+        testList.print();
         System.out.println("Node deleted: " + testList.deleteLast());
+        testList.print();
     }
 }

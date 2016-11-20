@@ -6,37 +6,78 @@
 public class LinkedList<T> {
     private Node<T> firstNode;
     private Node<T> lastNode;
+    private int length;
 
     /**
      * Constructor
      */
     LinkedList() {
         firstNode = lastNode = null;
+        length = 0;
     }
 
     /**
      * Method to insert new node at the front of linked list
      *
-     * @param newItem data to be inserted at start of linked list
+     * @param data data to be inserted at start of linked list
      */
-    public void insertFront(T newItem) {
-        if(this.isEmpty()) {
-            firstNode = lastNode = new Node<>(newItem);
+    public void insertFront(T data) {
+        if(this.length == 0) {
+            firstNode = lastNode = new Node<>(data);
         } else {
-            firstNode = new Node<>(newItem, firstNode);
+            firstNode = new Node<>(data, firstNode);
         }
+
+        length++;
     }
 
     /**
      * Method to insert new node at the end of linked list
      *
-     * @param newItem data to be inserted at end of linked list
+     * @param data data to be inserted at end of linked list
      */
-    public void insertEnd(T newItem) {
-        if(this.isEmpty()) {
-            firstNode = lastNode = new Node<>(newItem);
+    public void insertEnd(T data) {
+        if(this.length == 0) {
+            firstNode = lastNode = new Node<>(data);
         } else {
-            lastNode.setNextNode(new Node<>(newItem));
+            lastNode.setNextNode(new Node<>(data));
+            lastNode = lastNode.getNextNode();
+        }
+
+        length++;
+    }
+
+    /**
+     * Method to insert new node at specified position in linked list
+     *
+     * @param data data to be inserted in linked list
+     * @param pos position in linked list to insert
+     */
+    public void insert(T data, int pos) {
+        if(pos > length) {
+            System.out.println("Position out of bounds. Node not added.");
+            return;
+        } else if(pos == 0) {
+            insertFront(data);
+        } else if(pos == length) {
+            insertEnd(data);
+        } else {
+            Node<T> tempNode = firstNode;
+
+            // Loop to position in list
+            while(pos > 1) {
+                tempNode = tempNode.getNextNode();
+                pos--;
+            }
+
+            // Make node insertion
+            if(tempNode.getNextNode() != null) {
+                tempNode.setNextNode(new Node<T>(data, tempNode.getNextNode()));
+            } else {
+                tempNode.setNextNode(new Node<T>(data));
+            }
+
+            length++;
         }
     }
 
@@ -49,8 +90,9 @@ public class LinkedList<T> {
         T removed = null;
 
         // Set references for first node if list is not empty
-        if(this.isEmpty()) {
+        if(this.length == 0) {
             System.out.println("Empty linked list. Nothing to delete.");
+            return removed;
         } else if(firstNode == lastNode) {
             removed = firstNode.getData();
             firstNode = lastNode = null;
@@ -59,6 +101,7 @@ public class LinkedList<T> {
             firstNode = firstNode.getNextNode();
         }
 
+        length--;
         return removed;
     }
 
@@ -68,10 +111,11 @@ public class LinkedList<T> {
      * @return data stored in removed node
      */
     public T deleteLast() {
-        T removed = lastNode.getData();
+        T removed = null;
 
-        if(this.isEmpty()) {
+        if(this.length == 0) {
             System.out.println("Empty linked list. Nothing to delete.");
+            return removed;
         } else if(firstNode == lastNode) {
             removed = firstNode.getData();
             firstNode = lastNode = null;
@@ -79,13 +123,28 @@ public class LinkedList<T> {
             Node<T> tempNode = firstNode;
 
             // Navigate to second to last node in linked list
-            while(tempNode.getNextNode() != null) {
+            while(tempNode.getNextNode() != lastNode) {
                 tempNode = tempNode.getNextNode();
             }
 
+            removed = lastNode.getData();
+
+            // Update last node
             lastNode = tempNode;
-            tempNode.setNextNode(null);
+            lastNode.setNextNode(null);
         }
+
+        length--;
+
+        return removed;
+    }
+
+    public T delete(int pos) {
+        T removed = null;
+
+        if(this.length == 0) {
+            System.out.println("Empty linked list. Nothing to delete.");
+        } //else if() {        }
 
         return removed;
     }
@@ -97,6 +156,24 @@ public class LinkedList<T> {
      */
     public boolean isEmpty() {
         return firstNode == null;
+    }
+
+    /**
+     * Output contents of linked list to screen
+     */
+    public void print() {
+        if(this.isEmpty()) {
+            System.out.println("Empty linked list.");
+        } else {
+            System.out.println("Length: " + length);
+            Node<T> node = firstNode;
+            while(node != null) {
+                System.out.print(node.getData() + " ");
+                node = node.getNextNode();
+            }
+
+            System.out.println();
+        }
     }
 
 }
