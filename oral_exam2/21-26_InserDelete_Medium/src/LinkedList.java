@@ -54,7 +54,7 @@ public class LinkedList<T> {
      * @param pos position in linked list to insert
      */
     public void insert(T data, int pos) {
-        if(pos > length) {
+        if(pos < 0 || pos > length) {
             System.out.println("Position out of bounds. Node not added.");
             return;
         } else if(pos == 0) {
@@ -139,12 +139,38 @@ public class LinkedList<T> {
         return removed;
     }
 
+    /**
+     * Method to delete a node at specified location.
+     *
+     * @param pos position in linked list to delete
+     * @return data deleted from linked list
+     */
     public T delete(int pos) {
         T removed = null;
 
-        if(this.length == 0) {
+        if(pos < 0 || pos > length) {
+            System.out.println("Position out of bounds. Node not deleted.");
+        } else if(this.length == 0) {
             System.out.println("Empty linked list. Nothing to delete.");
-        } //else if() {        }
+        } else if(pos == 0) {
+            removed = this.deleteFirst();
+        } else if(pos == length) {
+            removed = this.deleteLast();
+        } else {
+            Node<T> tempNode = firstNode;
+
+            // Navigate to node to be removed
+            while(pos > 1) {
+                tempNode = tempNode.getNextNode();
+                pos--;
+            }
+
+            // Remove node
+            removed = tempNode.getNextNode().getData();
+            tempNode.setNextNode(tempNode.getNextNode().getNextNode());
+
+            length--;
+        }
 
         return removed;
     }

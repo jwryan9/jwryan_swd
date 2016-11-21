@@ -26,7 +26,17 @@ public class InsertDeleteDriver {
         testList.insert(6, 6);
         testList.print();
 
+        System.out.println("Out of bounds insertion test: ");
+        testList.insert(-1, -1);
+
         System.out.println("List is empty: " + testList.isEmpty());
+
+        System.out.println("(Delete out of bounds test) Node deleted: " + testList.delete(10));
+        System.out.println("(Delete out of bounds test) Node deleted: " + testList.delete(-53));
+        testList.print();
+
+        System.out.println("Node deleted: " + testList.delete(3));
+        testList.print();
         System.out.println("Node deleted: " + testList.deleteFirst());
         testList.print();
         System.out.println("Node deleted: " + testList.deleteLast());
