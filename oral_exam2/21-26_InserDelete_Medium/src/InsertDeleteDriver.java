@@ -28,6 +28,7 @@ public class InsertDeleteDriver {
 
         System.out.println("Out of bounds insertion test: ");
         testList.insert(-1, -1);
+        testList.insert(99, 99);
 
         System.out.println("List is empty: " + testList.isEmpty());
 
