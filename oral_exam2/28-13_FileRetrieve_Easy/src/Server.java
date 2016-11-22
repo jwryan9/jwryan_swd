@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.NoSuchFileException;
@@ -20,7 +17,7 @@ public class Server extends JFrame {
     private ObjectInputStream input; // Input from client
     private ServerSocket server; // Socket for server
     private Socket connection; // Connection to client
-    public Scanner fileInput;
+    private BufferedReader fileReader; // Buffered reader for reading file
     private int counter = 1; // To count number of connections
 
     /**
@@ -140,7 +137,7 @@ public class Server extends JFrame {
     /**
      * Manipulates display area in the event-dispatch thread to display message
      *
-     * @param messageToDisplay
+     * @param messageToDisplay message to be written to screen
      */
     private void displayMessasge(final String messageToDisplay) {
         SwingUtilities.invokeLater(
@@ -154,45 +151,49 @@ public class Server extends JFrame {
      * @param filepath path to file to be opened
      */
     private void openFile(String filepath) {
+        String error = "Error opening file: " + filepath + ".";
         try {
-            fileInput = new Scanner(Paths.get(filepath));
+            fileReader = new BufferedReader(new FileReader(filepath));
+            readFile(fileReader);
         } catch (IOException e) {
-            displayMessasge("\nError opening file.");
-            sendData("Error opening file.");
-
-            return;
+            displayMessasge("\n" + error);
+            sendData(error);
+            e.printStackTrace();
         }
-
-        readFile(fileInput);
     }
 
     /**
      * Read file line by line and transmit data
      *
-     * @param fileInput file scanner to read
+     * @param fileReader file to read
      */
-    private void readFile(Scanner fileInput) {
+    private void readFile(BufferedReader fileReader) {
+        String line;
+        String error = "\nError reading file.";
         try {
-            while(fileInput.hasNext()) {
-                sendData(fileInput.nextLine());
+            while((line = fileReader.readLine()) != null) {
+                sendData(line);
             }
-        } catch (NoSuchElementException e) {
-            displayMessasge("File improperly formatted.");
-        } catch (IllegalStateException e) {
-            displayMessasge("Errorreading from file.");
+        } catch (IOException e) {
+            displayMessasge(error);
+            sendData(error);
         } finally {
-            closeFile(fileInput);
+            closeFile(fileReader);
         }
     }
 
     /**
      * Close file scanner
      *
-     * @param fileInput file scanner to close
+     * @param fileReader file Buffered Reader to close
      */
-    private void closeFile(Scanner fileInput) {
-        if(fileInput != null) {
-            fileInput.close();
+    private void closeFile(BufferedReader fileReader) {
+        String error = "\nError closing file.";
+        try {
+            fileReader.close();
+        } catch (IOException e) {
+            displayMessasge(error);
+            sendData(error);
         }
     }
 
