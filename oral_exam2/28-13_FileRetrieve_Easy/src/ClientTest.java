@@ -1,9 +1,15 @@
 import javax.swing.*;
 
 /**
- * Created by jasonryan on 11/21/16.
+ * Tester class for running file retrieve client
  */
 public class ClientTest {
+
+    /**
+     * Main method, runs client program
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         Client application;
 
