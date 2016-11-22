@@ -6,6 +6,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 /**
  * Server class for file retrieval
@@ -16,6 +20,7 @@ public class Server extends JFrame {
     private ObjectInputStream input; // Input from client
     private ServerSocket server; // Socket for server
     private Socket connection; // Connection to client
+    public Scanner fileInput;
     private int counter = 1; // To count number of connections
 
     /**
@@ -94,6 +99,7 @@ public class Server extends JFrame {
             try {
                 message = (String) input.readObject();
                 displayMessasge("\n" + message);
+                openFile(message);
             } catch (ClassNotFoundException e) {
                 displayMessasge("\nRecieved unknown object type.");
             }
@@ -140,6 +146,54 @@ public class Server extends JFrame {
         SwingUtilities.invokeLater(
                 () -> displayArea.append(messageToDisplay)
         );
+    }
+
+    /**
+     * Open file to send contents to client
+     *
+     * @param filepath path to file to be opened
+     */
+    private void openFile(String filepath) {
+        try {
+            fileInput = new Scanner(Paths.get(filepath));
+        } catch (IOException e) {
+            displayMessasge("\nError opening file.");
+            sendData("Error opening file.");
+
+            return;
+        }
+
+        readFile(fileInput);
+    }
+
+    /**
+     * Read file line by line and transmit data
+     *
+     * @param fileInput file scanner to read
+     */
+    private void readFile(Scanner fileInput) {
+        try {
+            while(fileInput.hasNext()) {
+                sendData(fileInput.nextLine());
+            }
+        } catch (NoSuchElementException e) {
+            displayMessasge("File improperly formatted.");
+        } catch (IllegalStateException e) {
+            displayMessasge("Errorreading from file.");
+        } finally {
+            closeFile(fileInput);
+        }
+    }
+
+    /**
+     * Close file scanner
+     *
+     * @param fileInput file scanner to close
+     */
+    private void closeFile(Scanner fileInput) {
+        if(fileInput != null) {
+            fileInput.close();
+        }
     }
 
 }

@@ -16,7 +16,6 @@ public class Client extends JFrame {
     private ObjectOutputStream output;
     private ObjectInputStream input;
     private String serverMessage = "";
-    private String filepath = "";
     private String fileServer;
     private Socket client;
 
@@ -34,6 +33,7 @@ public class Client extends JFrame {
         enterField.setEditable(false);
         enterField.addActionListener(
                 e -> {
+                    System.out.println(e.getActionCommand());
                     sendData(e.getActionCommand());
                     enterField.setText("");
                 }
