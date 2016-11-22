@@ -33,7 +33,6 @@ public class Client extends JFrame {
         enterField.setEditable(false);
         enterField.addActionListener(
                 e -> {
-                    System.out.println(e.getActionCommand());
                     sendData(e.getActionCommand());
                     enterField.setText("");
                 }
