@@ -63,7 +63,7 @@ public class EnglishToMorse {
         this.english = english.toUpperCase();
         englishCharArr = this.english.toCharArray();
         String morseLetter;
-        for (char englishLet : englishCharArr) {
+        for(char englishLet : englishCharArr) {
 
             // Ignore characters not in map
             if(morseCodeDict.containsKey(englishLet)) {
