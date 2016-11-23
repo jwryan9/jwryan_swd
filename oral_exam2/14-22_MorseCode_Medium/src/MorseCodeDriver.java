@@ -1,10 +1,16 @@
 import java.util.Scanner;
 
 /**
- *  Created by jasonryan on 11/22/16.
+ *  Driver program for demonstrating MorseCode converter functionality
  */
 public class MorseCodeDriver {
 
+    /**
+     * Main method, allows user interaction through command line interface
+     * makes user selected conversion between English and Morse code
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         String toConvert, converted;
         int selection;
@@ -34,24 +40,24 @@ public class MorseCodeDriver {
                 kb.nextLine();
             } while (selection > 3 || selection < 1);
 
+            // Perform conversions or exit
             if(selection == 1) {
                 System.out.println("Enter string to convert:");
                 toConvert = kb.nextLine();
                 englishToMorse.convert(toConvert);
                 converted = englishToMorse.getMorse();
                 System.out.println("Converted String: " + converted);
+                englishToMorse.reset();
             } else if(selection == 2) {
                 System.out.println("Enter string to convert:");
                 toConvert = kb.nextLine();
                 morseToEnglish.convert(toConvert);
                 converted = morseToEnglish.getEnglish();
-                System.out.println("Conveted String: " + converted);
+                System.out.println("Converted String: " + converted);
+                morseToEnglish.reset();
             } else if(selection == 3) {
                 System.out.println("Exiting...");
             }
-
-            toConvert = "";
-            converted = "";
 
         } while(selection != 3);
     }

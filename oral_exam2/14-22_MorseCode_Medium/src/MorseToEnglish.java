@@ -80,4 +80,11 @@ public class MorseToEnglish {
     public String getEnglish() {
         return english;
     }
+
+    /**
+     * Reset converted English string
+     */
+    public void reset() {
+        english = "";
+    }
 }
