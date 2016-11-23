@@ -24,7 +24,7 @@ public class MorseCodeDriver {
             // Gather valid user input
             do {
                 // Display menu
-                System.out.println("14-22_MorseCode_Medium\nSelect direction to convert:");
+                System.out.println("\n14-22_MorseCode_Medium\nSelect direction to convert:");
                 System.out.println("\n1. English to Morse");
                 System.out.println("2. Morse to English");
                 System.out.println("3. Exit");

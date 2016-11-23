@@ -66,7 +66,9 @@ public class MorseToEnglish {
         for(String word : morseWords) {
             morseLetters = word.split(" ");
             for(String morseLet : morseLetters) {
-                english += morseCodeDict.get(morseLet);
+                if(morseCodeDict.containsKey(morseLet)) {
+                    english += morseCodeDict.get(morseLet);
+                }
             }
             english += " ";
         }
