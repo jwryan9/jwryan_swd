@@ -59,7 +59,7 @@ public class MorseToEnglish {
      *
      * @param morse string to convert
      */
-    public void convert(String morse) {
+    public void convert(final String morse) {
         this.morse = morse;
 
         morseWords = morse.split("   ");

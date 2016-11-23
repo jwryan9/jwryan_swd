@@ -59,7 +59,7 @@ public class EnglishToMorse {
      *
      * @param english string to convert
      */
-    public void convert(String english) {
+    public void convert(final String english) {
         this.english = english.toUpperCase();
         englishCharArr = this.english.toCharArray();
         String morseLetter;
