@@ -3,6 +3,8 @@ import java.util.TreeMap;
 
 /**
  * Class used to convert English to Morse code
+ *
+ * @author Jason Ryan
  */
 public class EnglishToMorse {
     private Map<Character, String> morseCodeDict;

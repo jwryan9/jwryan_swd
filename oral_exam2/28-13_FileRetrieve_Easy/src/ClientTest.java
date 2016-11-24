@@ -2,6 +2,8 @@ import javax.swing.*;
 
 /**
  * Tester class for running file retrieve client
+ *
+ * @author Jason Ryan
  */
 public class ClientTest {
 
@@ -19,7 +21,7 @@ public class ClientTest {
             application = new Client(args[0]);
         }
 
-        application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         application.runClient();
     }
 }

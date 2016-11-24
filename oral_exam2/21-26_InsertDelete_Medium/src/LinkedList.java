@@ -56,7 +56,6 @@ public class LinkedList<T> {
     public void insert(T data, int pos) {
         if(pos < 0 || pos > length) {
             System.out.println("Position out of bounds. Node not added.");
-            return;
         } else if(pos == 0) {
             insertFront(data);
         } else if(pos == length) {
@@ -72,9 +71,9 @@ public class LinkedList<T> {
 
             // Make node insertion
             if(tempNode.getNextNode() != null) {
-                tempNode.setNextNode(new Node<T>(data, tempNode.getNextNode()));
+                tempNode.setNextNode(new Node<>(data, tempNode.getNextNode()));
             } else {
-                tempNode.setNextNode(new Node<T>(data));
+                tempNode.setNextNode(new Node<>(data));
             }
 
             length++;

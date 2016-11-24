@@ -3,13 +3,11 @@ import java.awt.*;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.file.NoSuchFileException;
-import java.nio.file.Paths;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 /**
  * Server class for file retrieval
+ *
+ * @author Jason Ryan
  */
 public class Server extends JFrame {
     private JTextArea displayArea;
@@ -40,6 +38,7 @@ public class Server extends JFrame {
         try {
             server = new ServerSocket(12345, 100);
 
+            // Loop while connections made
             while(true) {
                 try {
                     waitForConnection();

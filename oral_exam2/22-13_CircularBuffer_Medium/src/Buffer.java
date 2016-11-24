@@ -1,5 +1,7 @@
 /**
  * Buffer interface specifies methods called by Producer and Consumer
+ *
+ * @author Jason Ryan
  */
 public interface
 Buffer {

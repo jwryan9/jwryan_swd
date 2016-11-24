@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 /**
  *  Driver program for demonstrating MorseCode converter functionality
+ *
+ *  @author Jason Ryan
  */
 public class MorseCodeDriver {
 

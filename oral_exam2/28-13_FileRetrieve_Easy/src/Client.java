@@ -9,6 +9,8 @@ import java.net.Socket;
 
 /**
  * Client class for file retrieval
+ *
+ * @author Jason Ryan
  */
 public class Client extends JFrame {
     private JTextField enterField;
