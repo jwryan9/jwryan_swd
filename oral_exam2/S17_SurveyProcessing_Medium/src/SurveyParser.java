@@ -4,7 +4,9 @@ import java.nio.file.Paths;
 import java.util.TreeMap;
 
 /**
- * Created by jasonryan on 11/24/16.
+ * Used for parsing survey results from customers on a variety of products.
+ *
+ * @author Jason Ryan
  */
 public class SurveyParser {
     private String path;
@@ -12,12 +14,16 @@ public class SurveyParser {
     private BufferedReader fileReader;
     private TreeMap<Integer, Integer> ratings;
     private String[][] fileContents;
-    private String[] filterArr;
 
-    private final String delimeter = ",";
-
+    /**
+     * Constructor. Initializes ratings, opens survey file, initializes file contents array.
+     *
+     * @param path filepath for survey data
+     */
     public SurveyParser(String path) {
         this.path = path;
+
+        ratings = new TreeMap<>();
 
         // Initialize ratings counts
         ratings.put(1, 0);
@@ -40,13 +46,17 @@ public class SurveyParser {
         }
     }
 
-    public void readFile() {
+    /**
+     * Reads contents of opened file to 2D string array.
+     */
+    private void readFile() {
         String line;
         int lineNum = 0;
         try {
             // Fill array with file contents
             while ((line = fileReader.readLine()) != null) {
-                fileContents[lineNum] = line.split(delimeter);
+                String delimiter = ",";
+                fileContents[lineNum] = line.split(delimiter);
                 lineNum++;
             }
         } catch (IOException e) {
@@ -60,15 +70,22 @@ public class SurveyParser {
         }
     }
 
+    /**
+     * Parse file contents for survey results matching specified constraints.
+     *
+     * @param product type of product customer responded to survey regarding
+     * @param filters filters to be applied
+     */
     public void parseData(String product, String filters) {
         boolean addRating = true;
         int rating;
 
-        filterArr = filters.split("/");
+        readFile();
+
         for(String[] response : fileContents) {
             // Check that filter constraints are met
             for(String data : response) {
-                if(!filters.contains(data)) {
+                if(!filters.contains(data) || !data.equals(product)) {
                     addRating = false;
                 }
             }
@@ -84,6 +101,11 @@ public class SurveyParser {
         }
     }
 
+    /**
+     * Getter method for ratings TreeMap.
+     *
+     * @return TreeMap of ratings counts
+     */
     public TreeMap<Integer, Integer> getRatings() {
         return ratings;
     }
