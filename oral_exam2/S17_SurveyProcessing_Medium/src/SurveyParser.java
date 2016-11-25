@@ -9,7 +9,6 @@ import java.util.TreeMap;
  * @author Jason Ryan
  */
 public class SurveyParser {
-    private String path;
     private int fileLen;
     private BufferedReader fileReader;
     private TreeMap<Integer, Integer> ratings;
@@ -21,8 +20,6 @@ public class SurveyParser {
      * @param path filepath for survey data
      */
     public SurveyParser(String path) {
-        this.path = path;
-
         ratings = new TreeMap<>();
 
         // Initialize ratings counts
