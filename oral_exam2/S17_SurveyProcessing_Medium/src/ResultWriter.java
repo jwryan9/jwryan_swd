@@ -1,7 +1,7 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -18,11 +18,11 @@ public class ResultWriter {
         }
     }
 
-    public void writeFile(Map<Object, Object> data) {
+    public void writeFile(TreeMap<Integer, Integer> data) {
         Object[] keys = data.keySet().toArray();
         for(Object key : keys) {
             try {
-                output.write(key + "," + data.get(key));
+                output.write(key + "," + data.get(key) + "\n");
             } catch (IOException e) {
                 System.out.println("Error writing file.");
             }
