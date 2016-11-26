@@ -50,6 +50,9 @@ public class SurveyParser {
         String line;
         int lineNum = 0;
         try {
+            // Read first line so header is ignored
+            fileReader.readLine();
+
             // Fill array with file contents
             while ((line = fileReader.readLine()) != null) {
                 String delimiter = ",";
@@ -71,30 +74,46 @@ public class SurveyParser {
      * Parse file contents for survey results matching specified constraints.
      *
      * @param product type of product customer responded to survey regarding
-     * @param filters filters to be applied
+     * @param filter filter to be applied
      */
-    public void parseData(String product, String filters) {
-        boolean addRating = true;
-        int rating;
+    public void parseData(String product, String filter) {
+        boolean matchProduct = false, matchFilter = false, addRating = false;
+        int rating = -1;
 
         readFile();
 
         for(String[] response : fileContents) {
             // Check that filter constraints are met
-            for(String data : response) {
-                if(!filters.contains(data) || !data.equals(product)) {
-                    addRating = false;
+            for (String data : response) {
+                if(data != null) {
+                    if (data.equals(product)) {
+                        matchProduct = true;
+                    }
+
+                    if (data.equals(filter)) {
+                        matchFilter = true;
+                    }
                 }
+            }
+
+            if(matchFilter && matchProduct) {
+                addRating = true;
             }
 
             // Increment ratings meeting filter
             if(addRating) {
-                rating = Integer.parseInt(response[4]);
+                try {
+                    rating = Integer.parseInt(response[4]);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
                 ratings.put(rating, (ratings.get(rating) + 1));
             }
 
-            // Rest addRating variable
-            addRating = true;
+            // Rest variables
+            addRating = false;
+            matchFilter = false;
+            matchProduct = false;
         }
     }
 
