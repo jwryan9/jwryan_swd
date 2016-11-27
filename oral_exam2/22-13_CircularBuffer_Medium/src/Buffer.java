@@ -10,4 +10,4 @@ Buffer {
 
     // obtain int value from Buffer
     int blockingGet() throws InterruptedException;
-} // end interface Buffer
+}

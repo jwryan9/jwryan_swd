@@ -10,6 +10,9 @@ public class CalculatorFrame extends JFrame {
 
     private final CalculatorPanel calculatorPanel;
 
+    /**
+     * Constructor. Initializes JFrame and adds new CalculatorPanel  to frame.
+     */
     public CalculatorFrame() {
         super("12-9_Calculator_Hard");
 

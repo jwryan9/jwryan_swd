@@ -37,4 +37,4 @@ public class Consumer implements Runnable {
         System.out.printf("%n%s %d%n%s%n",
                 "Consumer read values totaling", sum, "Terminating Consumer");
     }
-} // end class Consumer
+}

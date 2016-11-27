@@ -38,4 +38,4 @@ public class Producer implements Runnable {
         System.out.printf(
                 "Producer done producing%nTerminating Producer%n");
     }
-} // end class Producer
+}

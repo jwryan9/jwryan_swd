@@ -4,6 +4,12 @@
  * @author Jason Ryan
  */
 public class InsertDeleteDriver {
+
+    /**
+     * Main method
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         LinkedList<Integer> testList = new LinkedList<>();
 
