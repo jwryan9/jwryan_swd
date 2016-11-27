@@ -32,11 +32,12 @@ public class Client extends JFrame {
         fileServer = host;
 
         enterField = new JTextField();
+        enterField.setText("Enter file path.");
         enterField.setEditable(false);
         enterField.addActionListener(
                 e -> {
                     sendData(e.getActionCommand());
-                    enterField.setText("");
+                    enterField.setText("Enter file path.");
                 }
         );
 
