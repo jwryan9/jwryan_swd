@@ -36,10 +36,8 @@ public class SurveyParser {
             fileLen = (int) Files.lines(Paths.get(path)).count();
 
             fileContents = new String[fileLen][5];
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             System.out.println("Error opening file.");
-        } catch (IOException e) {
-            System.out.println("Error counting entries.");
         }
     }
 
@@ -59,12 +57,12 @@ public class SurveyParser {
                 fileContents[lineNum] = line.split(delimiter);
                 lineNum++;
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Error reading file.");
         } finally {
             try {
                 fileReader.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.out.println("Error closing file.");
             }
         }
@@ -82,38 +80,40 @@ public class SurveyParser {
 
         readFile();
 
-        for(String[] response : fileContents) {
-            // Check that filter constraints are met
-            for (String data : response) {
-                if(data != null) {
-                    if (data.equals(product)) {
-                        matchProduct = true;
-                    }
-
-                    if (data.equals(filter)) {
-                        matchFilter = true;
+        // Check that contents of file have been read properly
+        if(fileContents != null) {
+            for (String[] response : fileContents) {
+                // Check that filter constraints are met
+                for (String data : response) {
+                    if (data != null) {
+                        if (data.equals(product)) {
+                            matchProduct = true;
+                        }
+                        if (data.equals(filter)) {
+                            matchFilter = true;
+                        }
                     }
                 }
-            }
 
-            if(matchFilter && matchProduct) {
-                addRating = true;
-            }
-
-            // Increment ratings meeting filter
-            if(addRating) {
-                try {
-                    rating = Integer.parseInt(response[4]);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
+                if (matchFilter && matchProduct) {
+                    addRating = true;
                 }
-                ratings.put(rating, (ratings.get(rating) + 1));
-            }
 
-            // Rest variables
-            addRating = false;
-            matchFilter = false;
-            matchProduct = false;
+                // Increment ratings meeting filter
+                if (addRating) {
+                    try {
+                        rating = Integer.parseInt(response[4]);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                    ratings.put(rating, (ratings.get(rating) + 1));
+                }
+
+                // Rest variables
+                addRating = false;
+                matchFilter = false;
+                matchProduct = false;
+            }
         }
     }
 
