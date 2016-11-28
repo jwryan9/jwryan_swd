@@ -97,7 +97,7 @@ public class Server extends JFrame {
                 displayMessasge("\n" + message);
                 openFile(message);
             } catch (ClassNotFoundException e) {
-                displayMessasge("\nRecieved unknown object type.");
+                displayMessasge("\nReceived unknown object type.");
             }
         } while(!message.equals("CLIENT>>> TERMINATE"));
     }
@@ -187,7 +187,7 @@ public class Server extends JFrame {
      * @param fileReader file Buffered Reader to close
      */
     private void closeFile(BufferedReader fileReader) {
-        String error = "\nError closing file.";
+        final String error = "\nError closing file.";
         try {
             fileReader.close();
         } catch (IOException e) {

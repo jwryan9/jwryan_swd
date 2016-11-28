@@ -18,8 +18,6 @@ public class ZooFeedDriver {
         ArrayList<Animal> zooAnimals = new ArrayList<>();
         Scanner kb = new Scanner(System.in);
 
-        zooAnimals.add(new Bear("bear1", "bear pen"));
-        zooAnimals.add(new Bear("bear2", "bear pen"));
         zooAnimals.add(new Beaver("beaver1", "beaver pen"));
         zooAnimals.add(new Beaver("beaver2", "beaver pen"));
         zooAnimals.add(new Dolphin("dolphin1", "pool"));
@@ -28,8 +26,6 @@ public class ZooFeedDriver {
         zooAnimals.add(new Elephant("elephant2", "elephant pen"));
         zooAnimals.add(new Lion("lion1", "lion pen"));
         zooAnimals.add(new Lion("lion2", "lion pen"));
-        zooAnimals.add(new Snake("snake1", "snake pen"));
-        zooAnimals.add(new Snake("snake2", "snake pen"));
 
         mainMenu(kb, zooAnimals);
 

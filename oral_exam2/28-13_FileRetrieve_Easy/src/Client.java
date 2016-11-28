@@ -24,7 +24,7 @@ public class Client extends JFrame {
     /**
      * Constructor initializes client and sets up GUI
      *
-     * @param host host addres
+     * @param host host address
      */
     public Client(String host) {
         super("28-13 Client");
