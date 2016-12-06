@@ -6,8 +6,7 @@ import javafx.scene.text.Text;
 public class Controller {
 
     private Model model = new Model();
-    private long result;
-
+    private long result
     @FXML
     private Text output;
 
