@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/oral_exam2/12-9_Calulator_Hard/12-9_Calulator_Hard.iml" filepath="$PROJECT_DIR$/oral_exam2/12-9_Calulator_Hard/12-9_Calulator_Hard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam2/12-9_Calculator_Hard/12-9_Calulator_Hard.iml" filepath="$PROJECT_DIR$/oral_exam2/12-9_Calculator_Hard/12-9_Calulator_Hard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam2/12-9_Calculator_Hard/12-9_Calculator_Hard.iml" filepath="$PROJECT_DIR$/oral_exam2/12-9_Calculator_Hard/12-9_Calculator_Hard.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam2/14-22_MorseCode_Medium/14-22_MorseCode_Medium.iml" filepath="$PROJECT_DIR$/oral_exam2/14-22_MorseCode_Medium/14-22_MorseCode_Medium.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20160912_Quiz/20160912_Quiz.iml" filepath="$PROJECT_DIR$/lab/20160912_Quiz/20160912_Quiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20160919_Quiz/20160919_Quiz.iml" filepath="$PROJECT_DIR$/lab/20160919_Quiz/20160919_Quiz.iml" />
@@ -13,8 +14,10 @@
       <module fileurl="file://$PROJECT_DIR$/lab/20161107_Quiz/20161107_Quiz.iml" filepath="$PROJECT_DIR$/lab/20161107_Quiz/20161107_Quiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20161114_WorkshopCalculator/20161114_WorkshopCalculator.iml" filepath="$PROJECT_DIR$/lab/20161114_WorkshopCalculator/20161114_WorkshopCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/2016119_Quiz/2016119_Quiz.iml" filepath="$PROJECT_DIR$/lab/2016119_Quiz/2016119_Quiz.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oral_exam2/22-13_CircularBuffer_Medium/22-13_CircularBuffer_Medium.iml" filepath="$PROJECT_DIR$/oral_exam2/22-13_CircularBuffer_Medium/22-13_CircularBuffer_Medium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam2/21-26_InsertDelete_Medium/21-26_InsertDelete_Medium.iml" filepath="$PROJECT_DIR$/oral_exam2/21-26_InsertDelete_Medium/21-26_InsertDelete_Medium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam2/23-13_CircularBuffer_Medium/22-13_CircularBuffer_Medium.iml" filepath="$PROJECT_DIR$/oral_exam2/23-13_CircularBuffer_Medium/22-13_CircularBuffer_Medium.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam1/22-13_ColorChooser_Hard/22-13_ColorChooser_Hard.iml" filepath="$PROJECT_DIR$/oral_exam1/22-13_ColorChooser_Hard/22-13_ColorChooser_Hard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam2/23-13_CircularBuffer_Medium/23-13_CircularBuffer_Medium.iml" filepath="$PROJECT_DIR$/oral_exam2/23-13_CircularBuffer_Medium/23-13_CircularBuffer_Medium.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam2/28-13_FileRetrieve_Easy/28-13_FileRetrieve_Easy.iml" filepath="$PROJECT_DIR$/oral_exam2/28-13_FileRetrieve_Easy/28-13_FileRetrieve_Easy.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch03/Fig03_12/Fig03_12.iml" filepath="$PROJECT_DIR$/class_demos/ch03/Fig03_12/Fig03_12.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch03/Fig03_13/Fig03_13.iml" filepath="$PROJECT_DIR$/class_demos/ch03/Fig03_13/Fig03_13.iml" />
